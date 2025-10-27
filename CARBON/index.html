@@ -1,0 +1,892 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Carbon Footprint Calculator – Estimate Your Environmental Impact</title>
+    <meta name="description" content="Calculate your yearly CO2 footprint based on travel, energy, and lifestyle. Learn how to offset and reduce your impact with actionable tips and eco-friendly solutions.">
+    <meta name="keywords" content="carbon footprint calculator, CO2 emissions, environmental impact, climate change, carbon offset, eco-friendly, sustainability">
+    <meta name="author" content="CarbonChecks">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Free Carbon Footprint Calculator – Estimate Your Environmental Impact">
+    <meta property="og:description" content="Calculate your yearly CO2 footprint based on travel, energy, and lifestyle. Learn how to offset and reduce your impact.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://carbonchecks.com">
+    <meta property="og:image" content="https://carbonchecks.com/og-image.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Carbon Footprint Calculator – Estimate Your Environmental Impact">
+    <meta name="twitter:description" content="Calculate your yearly CO2 footprint based on travel, energy, and lifestyle. Learn how to offset and reduce your impact.">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5918874419248577" crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d5a27;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #2d5a27;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #2d5a27 0%, #4CAF50 100%);
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        /* Calculator Section */
+        .calculator-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .calculator-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2d5a27;
+        }
+        
+        .calculator-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        
+        .calculator-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group select {
+            padding: 1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        
+        .calculate-btn {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+        
+        /* Results Section */
+        .results {
+            display: none;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .results.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result-emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .result-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .result-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .result-description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .impact-low {
+            color: #4CAF50;
+        }
+        
+        .impact-medium {
+            color: #FF9800;
+        }
+        
+        .impact-high {
+            color: #f44336;
+        }
+        
+        .tips-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tips-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2d5a27;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .tips-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .tips-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Ad Slot */
+        .ad-slot {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            color: #6c757d;
+        }
+        
+        /* Blog Section */
+        .blog-section {
+            margin: 4rem 0;
+        }
+        
+        .blog-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2d5a27;
+        }
+        
+        .blog-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, #2d5a27, #4CAF50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2d5a27;
+        }
+        
+        .blog-card p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .blog-link {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .blog-link:hover {
+            background: #45a049;
+        }
+        
+        /* Affiliate Section */
+        .affiliate-section {
+            background: linear-gradient(135deg, #2d5a27, #4CAF50);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .affiliate-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .affiliate-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .affiliate-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .affiliate-link {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            transition: background 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .affiliate-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .affiliate-link h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .affiliate-link p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d5a27;
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #4a6b3a;
+            color: #ccc;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .calculator-section {
+                padding: 2rem 1rem;
+            }
+            
+            .calculator-title {
+                font-size: 2rem;
+            }
+            
+            .calculator-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .affiliate-links {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .calculator-section {
+                padding: 1.5rem 1rem;
+            }
+            
+            .result-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">🌱 CarbonChecks</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#calculator">Calculator</a></li>
+                        <li><a href="#blog">Articles</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Discover Your Carbon Footprint</h1>
+            <p>Take control of your environmental impact with our comprehensive carbon footprint calculator. Get personalized insights and actionable steps to reduce your emissions today.</p>
+            <a href="#calculator" class="cta-button">Calculate Now - It's Free!</a>
+        </div>
+    </section>
+
+    <!-- Ad Slot -->
+    <div class="container">
+        <div class="ad-slot">
+            <p>Advertisement Space</p>
+        </div>
+    </div>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <h2 class="calculator-title">Carbon Footprint Calculator</h2>
+            <p class="calculator-subtitle">Enter your lifestyle details below to get an accurate estimate of your annual CO2 emissions</p>
+            
+            <form class="calculator-form" id="carbonForm">
+                <div class="form-group">
+                    <label for="carMiles">Weekly Car Miles</label>
+                    <input type="number" id="carMiles" name="carMiles" placeholder="e.g., 150" min="0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="shortFlights">Short Haul Flights per Year</label>
+                    <input type="number" id="shortFlights" name="shortFlights" placeholder="e.g., 2" min="0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="longFlights">Long Haul Flights per Year</label>
+                    <input type="number" id="longFlights" name="longFlights" placeholder="e.g., 1" min="0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="meatConsumption">Meat Consumption</label>
+                    <select id="meatConsumption" name="meatConsumption" required>
+                        <option value="">Select frequency</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">2-3 times per week</option>
+                        <option value="occasional">Once a week</option>
+                        <option value="rarely">Rarely</option>
+                        <option value="never">Never (Vegetarian/Vegan)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="electricity">Monthly Electricity Usage (kWh)</label>
+                    <input type="number" id="electricity" name="electricity" placeholder="e.g., 800" min="0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="householdSize">Household Size</label>
+                    <select id="householdSize" name="householdSize" required>
+                        <option value="">Select size</option>
+                        <option value="1">1 person</option>
+                        <option value="2">2 people</option>
+                        <option value="3">3 people</option>
+                        <option value="4">4 people</option>
+                        <option value="5">5+ people</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="calculate-btn">Calculate My Carbon Footprint</button>
+            </form>
+            
+            <div class="results" id="results">
+                <div class="result-emoji" id="resultEmoji">🌍</div>
+                <div class="result-title" id="resultTitle">Your Carbon Footprint</div>
+                <div class="result-number" id="resultNumber">0</div>
+                <div class="result-description" id="resultDescription">tonnes CO2 per year</div>
+                
+                <div class="tips-section">
+                    <h3 class="tips-title">💡 Ways to Reduce Your Impact</h3>
+                    <ul class="tips-list" id="tipsList">
+                        <li>Switch to renewable energy sources</li>
+                        <li>Reduce meat consumption</li>
+                        <li>Use public transportation or carpool</li>
+                        <li>Invest in energy-efficient appliances</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affiliate Section -->
+   <section class="affiliate-section">
+        <div class="container">
+            <h2 class="affiliate-title">Take Action Now</h2>
+            <p class="affiliate-description">Ready to make a real difference? Explore these trusted solutions to reduce and offset your carbon footprint.</p>
+            
+            <div class="affiliate-links">
+                <a href="https://www.amazon.com/s?k=energy+efficient+appliances&tag=carbonchecks-20" target="_blank" class="affiliate-link">
+                    <h4>🏠 Energy-Efficient Appliances</h4>
+                    <p>Shop Amazon for ENERGY STAR certified appliances and save money</p>
+                </a>
+                
+                <a href="https://www.energysage.com/solar/?utm_source=carbonchecks&utm_medium=affiliate" target="_blank" class="affiliate-link">
+                    <h4>⚡ Solar Panel Quotes</h4>
+                    <p>Get free quotes for home solar systems and reduce energy costs</p>
+                </a>
+                
+                <a href="https://www.goldstandard.org/projects?utm_source=carbonchecks" target="_blank" class="affiliate-link">
+                    <h4>🌿 Carbon Offset Programs</h4>
+                    <p>Support verified reforestation and renewable energy projects</p>
+                </a>
+                
+                <a href="https://www.amazon.com/s?k=smart+thermostat&tag=carbonchecks-20" target="_blank" class="affiliate-link">
+                    <h4>🌡️ Smart Home Technology</h4>
+                    <p>Automate your energy savings with smart thermostats and devices</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <h2 class="blog-title">Latest Articles</h2>
+            <p class="blog-subtitle">Stay informed with expert insights on climate action and sustainable living</p>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">🌱</div>
+                    <div class="blog-content">
+                        <h3>10 Simple Ways to Reduce Your Carbon Footprint Today</h3>
+                        <p>Discover practical, actionable steps you can take immediately to lower your environmental impact. From energy-saving tips to sustainable lifestyle changes.</p>
+                        <a href="article-1-reduce-footprint.html" class="blog-link">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">✈️</div>
+                    <div class="blog-content">
+                        <h3>The Truth About Carbon Offsetting: What Really Works?</h3>
+                        <p>Learn about effective carbon offset programs and how to choose legitimate projects that actually make a difference in fighting climate change.</p>
+                        <a href="article-2-carbon-offsetting.html" class="blog-link">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">🏠</div>
+                    <div class="blog-content">
+                        <h3>Smart Home Technology for Energy Efficiency</h3>
+                        <p>Explore the latest smart home devices and technologies that can help you reduce energy consumption and save money while protecting the planet.</p>
+                        <a href="article-3-smart-home.html" class="blog-link">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">💰</div>
+                    <div class="blog-content">
+                        <h3>The Hidden Cost of Your Carbon Footprint: How Much Money You're Actually Losing</h3>
+                        <p>Discover the surprising financial impact of high carbon emissions and learn how sustainable choices can save you thousands of dollars annually while protecting the environment.</p>
+                        <a href="article-4-hidden-costs.html" class="blog-link">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About CarbonChecks</h3>
+                    <p>We're committed to helping individuals understand and reduce their environmental impact through accurate calculations and actionable insights.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#calculator">Carbon Calculator</a></li>
+                        <li><a href="#blog">Articles</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Climate Science</a></li>
+                        <li><a href="#">Sustainability Tips</a></li>
+                        <li><a href="#">Carbon Offset Guide</a></li>
+                        <li><a href="#">Environmental News</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section" id="contact">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:info@carbonchecks.com">info@carbonchecks.com</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 CarbonChecks. All rights reserved. | Making climate action accessible to everyone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Carbon Footprint Calculator
+        document.getElementById('carbonForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const carMiles = parseFloat(document.getElementById('carMiles').value) || 0;
+            const shortFlights = parseInt(document.getElementById('shortFlights').value) || 0;
+            const longFlights = parseInt(document.getElementById('longFlights').value) || 0;
+            const meatConsumption = document.getElementById('meatConsumption').value;
+            const electricity = parseFloat(document.getElementById('electricity').value) || 0;
+            const householdSize = parseInt(document.getElementById('householdSize').value) || 1;
+            
+            // Calculate carbon footprint (simplified calculations)
+            let totalCO2 = 0;
+            
+            // Car emissions (0.411 kg CO2 per mile)
+            totalCO2 += (carMiles * 52 * 0.411) / 1000; // Convert to tonnes
+            
+            // Flight emissions
+            totalCO2 += (shortFlights * 0.6); // Short haul flights
+            totalCO2 += (longFlights * 2.5); // Long haul flights
+            
+            // Meat consumption emissions
+            const meatMultiplier = {
+                'daily': 2.5,
+                'weekly': 1.5,
+                'occasional': 0.8,
+                'rarely': 0.3,
+                'never': 0.1
+            };
+            totalCO2 += meatMultiplier[meatConsumption] || 0;
+            
+            // Electricity emissions (0.4 kg CO2 per kWh average)
+            totalCO2 += (electricity * 12 * 0.4) / 1000; // Convert to tonnes
+            
+            // Adjust for household size
+            totalCO2 = totalCO2 / householdSize;
+            
+            // Display results
+            displayResults(totalCO2);
+        });
+        
+        function displayResults(co2) {
+            const resultsDiv = document.getElementById('results');
+            const emoji = document.getElementById('resultEmoji');
+            const title = document.getElementById('resultTitle');
+            const number = document.getElementById('resultNumber');
+            const description = document.getElementById('resultDescription');
+            const tipsList = document.getElementById('tipsList');
+            
+            // Determine impact level
+            let impactLevel, impactClass, tips;
+            
+            if (co2 < 8) {
+                impactLevel = 'Low Impact';
+                impactClass = 'impact-low';
+                emoji.textContent = '✅';
+                tips = [
+                    'Great job! You\'re already making a positive impact',
+                    'Consider sharing your sustainable practices with others',
+                    'Look into renewable energy options for your home',
+                    'Continue your eco-friendly lifestyle choices'
+                ];
+            } else if (co2 < 16) {
+                impactLevel = 'Medium Impact';
+                impactClass = 'impact-medium';
+                emoji.textContent = '⚠️';
+                tips = [
+                    'Switch to renewable energy sources',
+                    'Reduce meat consumption to 2-3 times per week',
+                    'Use public transportation or carpool more often',
+                    'Invest in energy-efficient appliances'
+                ];
+            } else {
+                impactLevel = 'High Impact';
+                impactClass = 'impact-high';
+                emoji.textContent = '❌';
+                tips = [
+                    'Consider switching to an electric vehicle',
+                    'Reduce flights and choose train travel when possible',
+                    'Switch to a plant-based diet',
+                    'Invest in home solar panels',
+                    'Conduct a home energy audit'
+                ];
+            }
+            
+            // Update display
+            title.textContent = impactLevel;
+            title.className = `result-title ${impactClass}`;
+            number.textContent = co2.toFixed(1);
+            number.className = `result-number ${impactClass}`;
+            description.textContent = 'tonnes CO2 per year';
+            
+            // Update tips
+            tipsList.innerHTML = '';
+            tips.forEach(tip => {
+                const li = document.createElement('li');
+                li.textContent = tip;
+                tipsList.appendChild(li);
+            });
+            
+            // Show results
+            resultsDiv.classList.add('show');
+            
+            // Scroll to results
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add some interactivity to blog cards
+        document.querySelectorAll('.blog-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const link = this.querySelector('.blog-link');
+                if (link) {
+                    // In a real implementation, this would navigate to the blog post
+                    alert('This would navigate to the full blog article. In a real implementation, you would link to your blog posts here.');
+                }
+            });
+        });
+        
+        
+    </script>
+</body>
+</html>
