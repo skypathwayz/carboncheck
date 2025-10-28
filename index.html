@@ -79,11 +79,33 @@
             text-decoration: none;
             color: #333;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2d5a27, #4CAF50);
+            transition: left 0.3s ease;
+            z-index: -1;
         }
         
         .nav-links a:hover {
-            color: #2d5a27;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(45, 90, 39, 0.3);
+        }
+        
+        .nav-links a:hover::before {
+            left: 0;
         }
         
         /* Hero Section */
@@ -401,7 +423,7 @@
         
         .affiliate-links {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
         
@@ -502,7 +524,7 @@
             }
             
             .affiliate-links {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
@@ -658,6 +680,16 @@
                     <h4>🌡️ Smart Home Technology</h4>
                     <p>Automate your energy savings with smart thermostats and devices</p>
                 </a>
+                
+                <a href="https://www.amazon.com/s?k=electric+vehicle+charger&tag=carbonchecks-20" target="_blank" rel="noopener" class="affiliate-link">
+                    <h4>🔌 EV Charging Solutions</h4>
+                    <p>Level 2 home chargers and portable EV charging equipment</p>
+                </a>
+                
+                <a href="https://www.amazon.com/s?k=reusable+water+bottles&tag=carbonchecks-20" target="_blank" rel="noopener" class="affiliate-link">
+                    <h4>💧 Sustainable Lifestyle</h4>
+                    <p>Eco-friendly products to reduce single-use plastic waste</p>
+                </a>
             </div>
         </div>
     </section>
@@ -730,10 +762,10 @@
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="#">Climate Science</a></li>
-                        <li><a href="#">Sustainability Tips</a></li>
-                        <li><a href="#">Carbon Offset Guide</a></li>
-                        <li><a href="#">Environmental News</a></li>
+                        <li><a href="https://climate.nasa.gov/" target="_blank" rel="noopener">Climate Science</a></li>
+                        <li><a href="https://www.epa.gov/recycle" target="_blank" rel="noopener">Sustainability Tips</a></li>
+                        <li><a href="https://www.goldstandard.org/" target="_blank" rel="noopener">Carbon Offset Guide</a></li>
+                        <li><a href="https://www.climate.gov/news-features" target="_blank" rel="noopener">Environmental News</a></li>
                     </ul>
                 </div>
                 
@@ -741,9 +773,9 @@
                     <h3>Contact</h3>
                     <ul>
                         <li><a href="mailto:info@carbonchecks.com">info@carbonchecks.com</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="mailto:support@carbonchecks.com">support@carbonchecks.com</a></li>
+                        <li><a href="https://www.privacypolicygenerator.info/" target="_blank" rel="noopener">Privacy Policy</a></li>
+                        <li><a href="https://www.termsofservicegenerator.net/" target="_blank" rel="noopener">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
