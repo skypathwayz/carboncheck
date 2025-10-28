@@ -983,8 +983,8 @@
             font-weight: 600;
         }
         
-        /* Exit Intent Popup */
-        .exit-popup {
+        /* Newsletter Popup */
+        .newsletter-popup {
             position: fixed;
             top: 0;
             left: 0;
@@ -1109,6 +1109,39 @@
             color: white;
             font-weight: 600;
             font-size: 0.9rem;
+        }
+        
+        /* Discount Code */
+        .discount-code {
+            background: #FFD700;
+            color: #2d5a27;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-weight: 600;
+            text-align: center;
+            border: 2px dashed #2d5a27;
+        }
+        
+        /* Google Form Alternative */
+        .google-form-alternative {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .google-form-link {
+            display: inline-block;
+            background: #4285F4;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .google-form-link:hover {
+            background: #3367D6;
         }
         
         .footer-section h3 {
@@ -1705,21 +1738,29 @@
         </div>
     </footer>
 
-    <!-- Exit Intent Popup -->
-    <div id="exitPopup" class="exit-popup">
+    <!-- Newsletter Signup Popup -->
+    <div id="newsletterPopup" class="newsletter-popup">
         <div class="popup-content">
-            <button class="popup-close" onclick="closeExitPopup()">&times;</button>
-            <h3>🚨 Wait! Don't Miss Out!</h3>
-            <p>Get <strong>10% OFF</strong> your first sustainable energy product when you subscribe to our newsletter!</p>
+            <button class="popup-close" onclick="closeNewsletterPopup()">&times;</button>
+            <h3>📧 Stay Updated!</h3>
+            <p>Join our newsletter for weekly carbon reduction tips and exclusive deals on sustainable products!</p>
             <div class="popup-form">
-                <input type="email" placeholder="Enter your email" id="popupEmail">
-                <button onclick="subscribePopup()">Get 10% OFF Now!</button>
+                <input type="email" placeholder="Enter your email" id="newsletterEmail">
+                <button onclick="subscribeNewsletter()">Subscribe Now</button>
             </div>
             <p class="popup-guarantee">✅ No spam, unsubscribe anytime</p>
         </div>
     </div>
 
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <script>
+        // Initialize EmailJS with your service ID
+        (function() {
+            emailjs.init("iXjW2R5ZS--DcE1yM"); // Your actual public key
+        })();
+        
         // Carbon Footprint Calculator
         document.getElementById('carbonForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1845,35 +1886,92 @@
             // Add some interactivity to blog cards
             // Blog card click handlers - removed placeholder alert
             
-            // Exit Intent Popup
-            let exitIntentShown = false;
-            let mouseY = 0;
+            // Newsletter Popup
+            let newsletterShown = false;
             
             document.addEventListener('mouseout', function(e) {
-                if (e.clientY <= 0 && !exitIntentShown) {
-                    showExitPopup();
+                if (e.clientY <= 0 && !newsletterShown) {
+                    showNewsletterPopup();
                 }
             });
             
-            function showExitPopup() {
-                if (!exitIntentShown) {
-                    document.getElementById('exitPopup').style.display = 'flex';
-                    exitIntentShown = true;
+            function showNewsletterPopup() {
+                if (!newsletterShown) {
+                    document.getElementById('newsletterPopup').style.display = 'flex';
+                    newsletterShown = true;
                 }
             }
             
-            function closeExitPopup() {
-                document.getElementById('exitPopup').style.display = 'none';
+            function closeNewsletterPopup() {
+                document.getElementById('newsletterPopup').style.display = 'none';
             }
             
-            function subscribePopup() {
-                const email = document.getElementById('popupEmail').value;
+            function subscribeNewsletter() {
+                const email = document.getElementById('newsletterEmail').value;
                 if (email) {
-                    alert('Thank you! Check your email for your 10% discount code.');
-                    closeExitPopup();
+                    // Store email in localStorage
+                    localStorage.setItem('newsletterSubscriber', email);
+                    
+                    // Send automatic welcome email
+                    sendWelcomeEmail(email);
+                    
+                    // Show success message
+                    alert('🎉 Thank you for subscribing to our newsletter!\n\n📧 Check your email for your welcome message!');
+                    
+                    // Send notification to your email
+                    sendNewsletterNotification(email);
+                    
+                    closeNewsletterPopup();
                 } else {
                     alert('Please enter your email address.');
                 }
+            }
+            
+            function sendWelcomeEmail(userEmail) {
+                // EmailJS template parameters
+                const templateParams = {
+                    to_email: userEmail,
+                    from_name: 'CarbonChecks Team',
+                    message: `Welcome to the CarbonChecks family! 🌍
+
+Thank you for joining our mission to save the planet, one step at a time!
+
+You're now part of a community of 50,000+ people who are making a real difference in the fight against climate change.
+
+What you can expect from us:
+🌱 Weekly carbon reduction tips that actually work
+💰 Exclusive deals on sustainable energy products
+📊 Monthly impact reports showing our collective progress
+🎯 Actionable steps to reduce your carbon footprint by 40%
+
+Together, we're not just changing habits - we're changing the world.
+
+Ready to make your first impact? Check out our carbon footprint calculator and discover how much you can save both the planet and your wallet!
+
+Let's save the world, one email at a time! 🌍💚
+
+The CarbonChecks Team`
+                };
+                
+                // Send email using EmailJS
+                emailjs.send('service_cij1dg3', 'template_84det9r', templateParams)
+                    .then(function(response) {
+                        console.log('Welcome email sent successfully!', response.status, response.text);
+                    }, function(error) {
+                        console.log('Failed to send welcome email:', error);
+                        // Fallback: open Gmail with pre-filled email
+                        sendNewsletterNotification(userEmail);
+                    });
+            }
+            
+            function sendNewsletterNotification(email) {
+                // Send email to your Gmail about new subscriber
+                const subject = 'New Newsletter Subscriber - CarbonChecks';
+                const body = `New newsletter subscriber: ${email}\n\nAdd them to your mailing list and send welcome email.\n\nWelcome email template:\n\nSubject: Welcome to CarbonChecks Newsletter!\n\nHi there!\n\nThank you for subscribing to our newsletter!\n\nYou'll receive weekly tips on reducing your carbon footprint and exclusive deals on sustainable products.\n\nBest regards,\nThe CarbonChecks Team`;
+                
+                // Create mailto link
+                const mailtoLink = `mailto:nabeel.shadeed23@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.open(mailtoLink);
             }
             
             // Mobile menu toggle
