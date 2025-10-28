@@ -72,8 +72,34 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #2d5a27;
+            background: linear-gradient(45deg, #2d5a27, #4CAF50, #2196F3, #00BCD4);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
+            animation: logoGlow 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .logo::before {
+            content: '🌍';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            animation: earthRotate 4s linear infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes earthRotate {
+            0% { transform: translateY(-50%) rotate(0deg); }
+            100% { transform: translateY(-50%) rotate(360deg); }
         }
         
         .nav-links {
