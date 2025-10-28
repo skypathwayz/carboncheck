@@ -1543,7 +1543,21 @@
             }
             
             .affiliate-links {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .affiliate-link {
+                width: 100%;
+                text-align: center;
+                padding: 1.5rem;
+                margin: 0.5rem 0;
+            }
+            
+            .affiliate-title {
+                text-align: center;
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
             }
             
             .newsletter-form {
@@ -1664,11 +1678,11 @@
                     <div class="product-price">From $2,999 <span class="original-price">$3,999</span></div>
                     <div class="product-savings">💰 Save up to $3,000/year</div>
                     <div class="stock-warning">🔥 Limited Time Offer!</div>
-                    <a href="https://www.amazon.com/s?k=complete+solar+panel+kit+system&ref=as_li_ss_tl" class="product-cta" target="_blank" rel="noopener">Shop Solar Kits (8% Commission)</a>
+                    <a href="https://www.amazon.com/s?k=complete+solar+panel+kit+system&ref=as_li_ss_tl" class="product-cta" target="_blank" rel="noopener">Shop Solar Kits</a>
                     <div class="alternative-links">
-                        <a href="https://www.renogy.com/solar-panel-kits/" target="_blank" rel="noopener">Renogy (10% Commission)</a> | 
-                        <a href="https://www.goalzero.com/solar-panels/" target="_blank" rel="noopener">Goal Zero (8% Commission)</a> | 
-                        <a href="https://www.ecoflow.com/solar-panels" target="_blank" rel="noopener">EcoFlow (8% Commission)</a>
+                        <a href="https://www.renogy.com/solar-panel-kits/" target="_blank" rel="noopener">Renogy</a> | 
+                        <a href="https://www.goalzero.com/solar-panels/" target="_blank" rel="noopener">Goal Zero</a> | 
+                        <a href="https://www.ecoflow.com/solar-panels" target="_blank" rel="noopener">EcoFlow</a>
                     </div>
                 </div>
                 
@@ -1680,11 +1694,11 @@
                     <div class="product-price">From $169 <span class="original-price">$249</span></div>
                     <div class="product-savings">💰 Save up to $400/year</div>
                     <div class="stock-warning">⚡ Energy Star Certified!</div>
-                    <a href="https://www.amazon.com/s?k=smart+thermostat+nest+honeywell+ecobee&ref=as_li_ss_tl" class="product-cta" target="_blank" rel="noopener">Shop Smart Thermostats (8% Commission)</a>
+                    <a href="https://www.amazon.com/s?k=smart+thermostat+nest+honeywell+ecobee&ref=as_li_ss_tl" class="product-cta" target="_blank" rel="noopener">Shop Smart Thermostats</a>
                     <div class="alternative-links">
-                        <a href="https://store.google.com/us/category/thermostats" target="_blank" rel="noopener">Google Nest (5% Commission)</a> | 
-                        <a href="https://www.ecobee.com/smart-thermostats/" target="_blank" rel="noopener">Ecobee (8% Commission)</a> | 
-                        <a href="https://www.honeywell.com/smart-thermostats" target="_blank" rel="noopener">Honeywell (6% Commission)</a>
+                        <a href="https://store.google.com/us/category/thermostats" target="_blank" rel="noopener">Google Nest</a> | 
+                        <a href="https://www.ecobee.com/smart-thermostats/" target="_blank" rel="noopener">Ecobee</a> | 
+                        <a href="https://www.honeywell.com/smart-thermostats" target="_blank" rel="noopener">Honeywell</a>
                     </div>
                 </div>
                 
@@ -1696,11 +1710,11 @@
                     <div class="product-price">From $89 <span class="original-price">$149</span></div>
                     <div class="product-savings">💰 Save up to $200/year</div>
                     <div class="stock-warning">🔥 Real-Time Monitoring!</div>
-                    <a href="https://www.amazon.com/s?k=home+energy+monitor+smart+meter&ref=as_li_ss_tl" class="product-cta" target="_blank" rel="noopener">Shop Energy Monitors (8% Commission)</a>
+                    <a href="https://www.amazon.com/s?k=home+energy+monitor+smart+meter&ref=as_li_ss_tl" class="product-cta" target="_blank" rel="noopener">Shop Energy Monitors</a>
                     <div class="alternative-links">
-                        <a href="https://www.sense.com/" target="_blank" rel="noopener">Sense (12% Commission)</a> | 
-                        <a href="https://www.emporiaenergy.com/" target="_blank" rel="noopener">Emporia (10% Commission)</a> | 
-                        <a href="https://www.neurio.com/" target="_blank" rel="noopener">Neurio (8% Commission)</a>
+                        <a href="https://www.sense.com/" target="_blank" rel="noopener">Sense</a> | 
+                        <a href="https://www.emporiaenergy.com/" target="_blank" rel="noopener">Emporia</a> | 
+                        <a href="https://www.neurio.com/" target="_blank" rel="noopener">Neurio</a>
                     </div>
                 </div>
             </div>
@@ -2010,18 +2024,18 @@
                     </ul>
                 </div>
                 
-                <div class="newsletter-section">
-                    <h3>📧 Stay Updated</h3>
-                    <p>Get weekly carbon reduction tips and exclusive deals on sustainable products</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" required>
-                        <button type="submit">Subscribe</button>
-                    </form>
+                            <div class="newsletter-section">
+                                <h3>📧 Stay Updated</h3>
+                                <p>Get weekly carbon reduction tips and exclusive deals on sustainable products</p>
+                                <form class="newsletter-form" id="footerNewsletterForm">
+                                    <input type="email" id="footerEmail" placeholder="Enter your email" required>
+                                    <button type="submit">Subscribe</button>
+                                </form>
                     <div class="social-links">
-                        <a href="#" target="_blank" rel="noopener" title="Email">📧</a>
-                        <a href="#" target="_blank" rel="noopener" title="Twitter">🐦</a>
-                        <a href="#" target="_blank" rel="noopener" title="LinkedIn">💼</a>
-                        <a href="#" target="_blank" rel="noopener" title="Instagram">📸</a>
+                        <a href="mailto:info@carbonchecks.com" title="Email Us">📧</a>
+                        <a href="https://twitter.com/carbonchecks" target="_blank" rel="noopener" title="Follow us on Twitter">🐦</a>
+                        <a href="https://linkedin.com/company/carbonchecks" target="_blank" rel="noopener" title="Connect on LinkedIn">💼</a>
+                        <a href="https://instagram.com/carbonchecks" target="_blank" rel="noopener" title="Follow on Instagram">📸</a>
                     </div>
                 </div>
             </div>
@@ -2040,7 +2054,7 @@
             <p>Join our newsletter for weekly carbon reduction tips and exclusive deals on sustainable products!</p>
             <div class="popup-form">
                 <input type="email" placeholder="Enter your email" id="newsletterEmail">
-                <button onclick="subscribeNewsletter()">Subscribe Now</button>
+                            <button onclick="subscribeNewsletterPopup()">Subscribe Now</button>
             </div>
             <p class="popup-guarantee">✅ No spam, unsubscribe anytime</p>
         </div>
@@ -2200,14 +2214,23 @@
                 document.getElementById('newsletterPopup').style.display = 'none';
             }
             
-            function subscribeNewsletter() {
-                const email = document.getElementById('newsletterEmail').value;
+            // Footer newsletter form functionality
+            document.getElementById('footerNewsletterForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('footerEmail').value;
+                if (email) {
+                    subscribeNewsletter(email);
+                    document.getElementById('footerEmail').value = '';
+                }
+            });
+            
+            function subscribeNewsletter(email) {
                 if (email) {
                     // Store email in localStorage
                     localStorage.setItem('newsletterSubscriber', email);
                     
-                    // Show loading message
-                    alert('🎉 Thank you for subscribing! Sending your welcome email...');
+                    // Show immediate success message
+                    alert('🎉 Thank you for subscribing! You\'ll receive your welcome email shortly!');
                     
                     // Send automatic welcome email
                     sendWelcomeEmail(email);
@@ -2218,12 +2241,15 @@
                 }
             }
             
+            // Handle popup newsletter form
+            function subscribeNewsletterPopup() {
+                const email = document.getElementById('newsletterEmail').value;
+                subscribeNewsletter(email);
+            }
+            
             function sendWelcomeEmail(userEmail) {
-                // EmailJS template parameters
-                const templateParams = {
-                    to_email: userEmail,
-                    from_name: 'CarbonChecks Team',
-                    message: `Welcome to the CarbonChecks family! 🌍
+                // Create a beautiful welcome message
+                const welcomeMessage = `Welcome to the CarbonChecks family! 🌍
 
 Thank you for joining our mission to save the planet, one step at a time!
 
@@ -2241,22 +2267,47 @@ Ready to make your first impact? Check out our carbon footprint calculator and d
 
 Let's save the world, one email at a time! 🌍💚
 
-The CarbonChecks Team`
-                };
+The CarbonChecks Team`;
+
+                // Try EmailJS first, with fallback
+                try {
+                    if (typeof emailjs !== 'undefined') {
+                        const templateParams = {
+                            to_email: userEmail,
+                            from_name: 'CarbonChecks Team',
+                            message: welcomeMessage
+                        };
+                        
+                        emailjs.send('service_cij1dg3', 'template_84det9r', templateParams)
+                            .then(function(response) {
+                                console.log('Welcome email sent successfully!', response.status, response.text);
+                                alert('✅ Welcome email sent successfully! Check your inbox!');
+                                sendNewsletterNotification(userEmail);
+                            }, function(error) {
+                                console.log('EmailJS failed, using fallback:', error);
+                                sendNewsletterFallback(userEmail, welcomeMessage);
+                            });
+                    } else {
+                        sendNewsletterFallback(userEmail, welcomeMessage);
+                    }
+                } catch (error) {
+                    console.log('EmailJS error, using fallback:', error);
+                    sendNewsletterFallback(userEmail, welcomeMessage);
+                }
+            }
+            
+            function sendNewsletterFallback(userEmail, message) {
+                // Fallback: Open email client with pre-filled message
+                const subject = 'Welcome to CarbonChecks Newsletter! 🌍';
+                const body = `Hi there!\n\n${message}\n\nBest regards,\nThe CarbonChecks Team`;
+                const mailtoLink = `mailto:${userEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 
-                // Send email using EmailJS
-                emailjs.send('service_cij1dg3', 'template_84det9r', templateParams)
-                    .then(function(response) {
-                        console.log('Welcome email sent successfully!', response.status, response.text);
-                        alert('✅ Welcome email sent successfully! Check your inbox for the beautiful welcome message!');
-                        // Send notification to your email
-                        sendNewsletterNotification(userEmail);
-                    }, function(error) {
-                        console.log('Failed to send welcome email:', error);
-                        alert('⚠️ Email service temporarily unavailable. We\'ll send your welcome email shortly!');
-                        // Fallback: open Gmail with pre-filled email
-                        sendNewsletterNotification(userEmail);
-                    });
+                // Show success message and open email client
+                alert('✅ Newsletter subscription successful! Opening your email client to send welcome message...');
+                window.open(mailtoLink);
+                
+                // Also notify admin
+                sendNewsletterNotification(userEmail);
             }
             
             function sendNewsletterNotification(email) {
