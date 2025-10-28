@@ -1912,14 +1912,11 @@
                     // Store email in localStorage
                     localStorage.setItem('newsletterSubscriber', email);
                     
+                    // Show loading message
+                    alert('🎉 Thank you for subscribing! Sending your welcome email...');
+                    
                     // Send automatic welcome email
                     sendWelcomeEmail(email);
-                    
-                    // Show success message
-                    alert('🎉 Thank you for subscribing to our newsletter!\n\n📧 Check your email for your welcome message!');
-                    
-                    // Send notification to your email
-                    sendNewsletterNotification(email);
                     
                     closeNewsletterPopup();
                 } else {
@@ -1957,8 +1954,12 @@ The CarbonChecks Team`
                 emailjs.send('service_cij1dg3', 'template_84det9r', templateParams)
                     .then(function(response) {
                         console.log('Welcome email sent successfully!', response.status, response.text);
+                        alert('✅ Welcome email sent successfully! Check your inbox for the beautiful welcome message!');
+                        // Send notification to your email
+                        sendNewsletterNotification(userEmail);
                     }, function(error) {
                         console.log('Failed to send welcome email:', error);
+                        alert('⚠️ Email service temporarily unavailable. We\'ll send your welcome email shortly!');
                         // Fallback: open Gmail with pre-filled email
                         sendNewsletterNotification(userEmail);
                     });
@@ -1994,7 +1995,7 @@ The CarbonChecks Team`
             document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const email = this.querySelector('input[type="email"]').value;
-                alert('Thank you for subscribing! We\'ll send you weekly carbon reduction tips. (In production, this would connect to your email service)');
+                // This is handled by the newsletter popup system now
                 this.reset();
             });
             
