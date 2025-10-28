@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CarbonChecks</title>
+    <meta name="description" content="Get in touch with CarbonChecks - we're here to help with your carbon footprint questions and environmental sustainability journey.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5918874419248577" crossorigin="anonymous"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4GP5ZEMD1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-F4GP5ZEMD1');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d5a27;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2d5a27, #4CAF50);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .nav-links a:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(45, 90, 39, 0.4);
+            border-color: #2d5a27;
+        }
+        
+        .nav-links a:hover::before {
+            left: 0;
+        }
+        
+        /* Content */
+        .page-header {
+            text-align: center;
+            padding: 4rem 0 2rem;
+            background: linear-gradient(135deg, #2d5a27 0%, #4CAF50 100%);
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content h2 {
+            color: #2d5a27;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            font-weight: 700;
+        }
+        
+        .content h3 {
+            color: #2d5a27;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.8rem;
+            font-weight: 600;
+        }
+        
+        .content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .content ul {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+        
+        .content li {
+            margin-bottom: 0.8rem;
+            color: #555;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 4px solid #4CAF50;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+        
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2d5a27;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, #2d5a27, #4CAF50);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .contact-card h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-card a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d5a27;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 2rem 1rem;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">🌱 CarbonChecks</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html#calculator">Calculator</a></li>
+                        <li><a href="index.html#blog">Articles</a></li>
+                        <li><a href="about-us.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Contact Us</h1>
+            <p class="page-subtitle">We're here to help with your carbon footprint journey</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <div class="container">
+        <div class="content">
+            <h2>Get in Touch</h2>
+            <p>Have questions about your carbon footprint? Need help with our calculator? Want to suggest improvements or report an issue? We'd love to hear from you!</p>
+            
+            <p>Our team is committed to providing helpful, timely responses to all inquiries. Whether you're just starting your sustainability journey or you're a seasoned environmental advocate, we're here to support you.</p>
+
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>📧 General Inquiries</h3>
+                    <p>For general questions about CarbonChecks, our calculator, or our content.</p>
+                    <a href="mailto:info@carbonchecks.com">info@carbonchecks.com</a>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>🛠️ Technical Support</h3>
+                    <p>Having trouble with our calculator or website? We're here to help!</p>
+                    <a href="mailto:support@carbonchecks.com">support@carbonchecks.com</a>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>🤝 Partnerships</h3>
+                    <p>Interested in partnering with us or featuring our content?</p>
+                    <a href="mailto:partnerships@carbonchecks.com">partnerships@carbonchecks.com</a>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>📰 Media & Press</h3>
+                    <p>Media inquiries, press releases, and interview requests.</p>
+                    <a href="mailto:media@carbonchecks.com">media@carbonchecks.com</a>
+                </div>
+            </div>
+
+            <h2>Send Us a Message</h2>
+            <p>Prefer to use our contact form? Fill out the form below and we'll get back to you within 24 hours.</p>
+            
+            <div class="contact-form">
+                <form action="mailto:info@carbonchecks.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="calculator-help">Calculator Help</option>
+                            <option value="general-question">General Question</option>
+                            <option value="content-feedback">Content Feedback</option>
+                            <option value="technical-issue">Technical Issue</option>
+                            <option value="partnership">Partnership Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Please provide as much detail as possible so we can help you effectively." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <p>Before reaching out, you might find the answer to your question in our FAQ section:</p>
+            
+            <h3>How accurate is the carbon footprint calculator?</h3>
+            <p>Our calculator uses industry-standard emission factors and provides estimates based on your inputs. While it's not a scientific measurement, it gives you a good understanding of your environmental impact and areas for improvement.</p>
+            
+            <h3>Is my data secure and private?</h3>
+            <p>Yes, we take your privacy seriously. All calculations are performed locally in your browser, and we don't store your personal information unless you explicitly provide it (like subscribing to our newsletter).</p>
+            
+            <h3>Do you charge for using the calculator?</h3>
+            <p>No, our carbon footprint calculator is completely free to use. We believe that environmental awareness should be accessible to everyone.</p>
+            
+            <h3>How often should I recalculate my carbon footprint?</h3>
+            <p>We recommend recalculating your carbon footprint every 3-6 months, or whenever you make significant lifestyle changes (like moving, changing jobs, or adopting new sustainable habits).</p>
+            
+            <h3>Can I share my results on social media?</h3>
+            <p>Absolutely! We encourage you to share your carbon footprint results and sustainability journey. Use the hashtag #CarbonChecks to connect with our community.</p>
+
+            <div class="highlight-box">
+                <strong>Response Time:</strong> We typically respond to all inquiries within 24 hours during business days. For urgent technical issues, please mark your email as "URGENT" in the subject line.
+            </div>
+
+            <h2>Follow Us</h2>
+            <p>Stay connected with CarbonChecks and join our community of environmentally conscious individuals:</p>
+            <ul>
+                <li><strong>Newsletter:</strong> Subscribe to get weekly tips and updates</li>
+                <li><strong>Social Media:</strong> Follow us for daily inspiration and tips</li>
+                <li><strong>Community:</strong> Join discussions and share your progress</li>
+            </ul>
+
+            <h2>Business Hours</h2>
+            <p>Our team is available Monday through Friday, 9:00 AM to 6:00 PM EST. We check emails regularly and respond to urgent inquiries outside of business hours when possible.</p>
+            
+            <p>For non-urgent matters, please allow up to 24 hours for a response during business days.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2024 CarbonChecks. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

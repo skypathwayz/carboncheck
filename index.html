@@ -23,6 +23,16 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5918874419248577" crossorigin="anonymous"></script>
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4GP5ZEMD1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-F4GP5ZEMD1');
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -78,12 +88,13 @@
         .nav-links a {
             text-decoration: none;
             color: #333;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 25px;
             position: relative;
             overflow: hidden;
+            border: 2px solid transparent;
         }
         
         .nav-links a::before {
@@ -100,12 +111,56 @@
         
         .nav-links a:hover {
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(45, 90, 39, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(45, 90, 39, 0.4);
+            border-color: #2d5a27;
         }
         
         .nav-links a:hover::before {
             left: 0;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #2d5a27;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 15px 15px;
+            padding: 1rem;
+        }
+        
+        .mobile-menu.show {
+            display: block;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 1rem;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-menu a:hover {
+            color: #2d5a27;
+        }
+        
+        .mobile-menu a:last-child {
+            border-bottom: none;
         }
         
         /* Hero Section */
@@ -497,6 +552,65 @@
             color: #ccc;
         }
         
+        /* Newsletter Form */
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 2px solid #4a6b3a;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .newsletter-form button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #45a049;
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 1.2rem;
+            transition: background 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
@@ -519,12 +633,24 @@
                 display: none;
             }
             
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
             .blog-grid {
                 grid-template-columns: 1fr;
             }
             
             .affiliate-links {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                margin-bottom: 0.5rem;
             }
         }
         
@@ -557,10 +683,17 @@
                     <ul class="nav-links">
                         <li><a href="#calculator">Calculator</a></li>
                         <li><a href="#blog">Articles</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="about-us.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
                 </nav>
+                <div class="mobile-menu" id="mobileMenu">
+                    <a href="#calculator">Calculator</a>
+                    <a href="#blog">Articles</a>
+                    <a href="about-us.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
             </div>
         </div>
     </header>
@@ -661,34 +794,34 @@
             <p class="affiliate-description">Ready to make a real difference? Explore these trusted solutions to reduce and offset your carbon footprint.</p>
             
             <div class="affiliate-links">
-                <a href="https://www.amazon.com/s?k=energy+efficient+appliances&tag=carbonchecks-20" target="_blank" rel="noopener" class="affiliate-link">
+                <a href="article-1-reduce-footprint.html#led-bulbs" target="_blank" rel="noopener" class="affiliate-link">
                     <h4>🏠 Energy-Efficient Appliances</h4>
-                    <p>Shop Amazon for ENERGY STAR certified appliances and save money</p>
+                    <p>Learn how to save $500+ annually with smart appliance choices</p>
                 </a>
                 
-                <a href="https://www.energysage.com/solar/?utm_source=carbonchecks&utm_medium=affiliate" target="_blank" rel="noopener" class="affiliate-link">
+                <a href="article-3-smart-home.html#solar-quotes" target="_blank" rel="noopener" class="affiliate-link">
                     <h4>⚡ Solar Panel Quotes</h4>
-                    <p>Get free quotes for home solar systems and reduce energy costs</p>
+                    <p>Discover how solar can save you thousands while helping the planet</p>
                 </a>
                 
-                <a href="https://www.goldstandard.org/projects?utm_source=carbonchecks" target="_blank" rel="noopener" class="affiliate-link">
+                <a href="article-2-carbon-offsetting.html#offset-programs" target="_blank" rel="noopener" class="affiliate-link">
                     <h4>🌿 Carbon Offset Programs</h4>
-                    <p>Support verified reforestation and renewable energy projects</p>
+                    <p>Find legitimate programs that actually make a difference</p>
                 </a>
                 
-                <a href="https://www.amazon.com/s?k=smart+thermostat&tag=carbonchecks-20" target="_blank" rel="noopener" class="affiliate-link">
+                <a href="article-3-smart-home.html#smart-thermostats" target="_blank" rel="noopener" class="affiliate-link">
                     <h4>🌡️ Smart Home Technology</h4>
-                    <p>Automate your energy savings with smart thermostats and devices</p>
+                    <p>Automate your energy savings and reduce bills by 30%</p>
                 </a>
                 
-                <a href="https://www.amazon.com/s?k=electric+vehicle+charger&tag=carbonchecks-20" target="_blank" rel="noopener" class="affiliate-link">
+                <a href="article-4-hidden-costs.html#ev-charging" target="_blank" rel="noopener" class="affiliate-link">
                     <h4>🔌 EV Charging Solutions</h4>
-                    <p>Level 2 home chargers and portable EV charging equipment</p>
+                    <p>Learn about home charging options and cost savings</p>
                 </a>
                 
-                <a href="https://www.amazon.com/s?k=reusable+water+bottles&tag=carbonchecks-20" target="_blank" rel="noopener" class="affiliate-link">
+                <a href="https://www.rei.com/?irgwc=1&clickid=6643343" target="_blank" rel="noopener" class="affiliate-link">
                     <h4>💧 Sustainable Lifestyle</h4>
-                    <p>Eco-friendly products to reduce single-use plastic waste</p>
+                    <p>Shop REI for eco-friendly outdoor gear and sustainable products</p>
                 </a>
             </div>
         </div>
@@ -754,8 +887,9 @@
                     <ul>
                         <li><a href="#calculator">Carbon Calculator</a></li>
                         <li><a href="#blog">Articles</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
                     </ul>
                 </div>
                 
@@ -770,12 +904,25 @@
                 </div>
                 
                 <div class="footer-section" id="contact">
-                    <h3>Contact</h3>
+                    <h3>Newsletter</h3>
+                    <p>Get weekly carbon reduction tips and updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="#" target="_blank" rel="noopener">📧</a>
+                        <a href="#" target="_blank" rel="noopener">📱</a>
+                        <a href="#" target="_blank" rel="noopener">💼</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
                     <ul>
-                        <li><a href="mailto:info@carbonchecks.com">info@carbonchecks.com</a></li>
-                        <li><a href="mailto:support@carbonchecks.com">support@carbonchecks.com</a></li>
-                        <li><a href="https://www.privacypolicygenerator.info/" target="_blank" rel="noopener">Privacy Policy</a></li>
-                        <li><a href="https://www.termsofservicegenerator.net/" target="_blank" rel="noopener">Terms of Service</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -909,18 +1056,41 @@
             });
         });
         
-        // Add some interactivity to blog cards
-        document.querySelectorAll('.blog-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const link = this.querySelector('.blog-link');
-                if (link) {
-                    // In a real implementation, this would navigate to the blog post
-                    alert('This would navigate to the full blog article. In a real implementation, you would link to your blog posts here.');
+            // Add some interactivity to blog cards
+            document.querySelectorAll('.blog-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const link = this.querySelector('.blog-link');
+                    if (link) {
+                        // In a real implementation, this would navigate to the blog post
+                        alert('This would navigate to the full blog article. In a real implementation, you would link to your blog posts here.');
+                    }
+                });
+            });
+            
+            // Mobile menu toggle
+            function toggleMobileMenu() {
+                const mobileMenu = document.getElementById('mobileMenu');
+                mobileMenu.classList.toggle('show');
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+                
+                if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                    mobileMenu.classList.remove('show');
                 }
             });
-        });
-        
-        
-    </script>
+            
+            // Newsletter form handling
+            document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                alert('Thank you for subscribing! We\'ll send you weekly carbon reduction tips. (In production, this would connect to your email service)');
+                this.reset();
+            });
+            
+        </script>
 </body>
 </html>

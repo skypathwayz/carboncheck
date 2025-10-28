@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - CarbonChecks</title>
+    <meta name="description" content="Frequently Asked Questions about CarbonChecks carbon footprint calculator and environmental sustainability tips.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5918874419248577" crossorigin="anonymous"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4GP5ZEMD1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-F4GP5ZEMD1');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d5a27;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2d5a27, #4CAF50);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .nav-links a:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(45, 90, 39, 0.4);
+            border-color: #2d5a27;
+        }
+        
+        .nav-links a:hover::before {
+            left: 0;
+        }
+        
+        /* Content */
+        .page-header {
+            text-align: center;
+            padding: 4rem 0 2rem;
+            background: linear-gradient(135deg, #2d5a27 0%, #4CAF50 100%);
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content h2 {
+            color: #2d5a27;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            font-weight: 700;
+        }
+        
+        .content h3 {
+            color: #2d5a27;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.8rem;
+            font-weight: 600;
+        }
+        
+        .content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .content ul {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+        
+        .content li {
+            margin-bottom: 0.8rem;
+            color: #555;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 4px solid #4CAF50;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+        
+        .faq-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background: #2d5a27;
+            color: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #1e3d1a;
+        }
+        
+        .faq-answer {
+            padding: 1.5rem;
+            display: none;
+        }
+        
+        .faq-answer.show {
+            display: block;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #2d5a27, #4CAF50);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #2d5a27;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d5a27;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">🌱 CarbonChecks</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html#calculator">Calculator</a></li>
+                        <li><a href="index.html#blog">Articles</a></li>
+                        <li><a href="about-us.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Frequently Asked Questions</h1>
+            <p class="page-subtitle">Everything you need to know about CarbonChecks</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <div class="container">
+        <div class="content">
+            <h2>General Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    What is CarbonChecks and how does it work?
+                </div>
+                <div class="faq-answer">
+                    <p>CarbonChecks is a free online carbon footprint calculator that helps you understand your environmental impact. Simply enter information about your lifestyle (transportation, energy usage, diet, etc.), and our calculator provides an estimate of your annual CO2 emissions along with personalized tips to reduce your impact.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Is the carbon footprint calculator free to use?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, our carbon footprint calculator is completely free to use. We believe that environmental awareness should be accessible to everyone, regardless of their financial situation. We support our free service through advertising and affiliate partnerships with eco-friendly companies.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    How accurate are the carbon footprint calculations?
+                </div>
+                <div class="faq-answer">
+                    <p>Our calculator uses industry-standard emission factors and provides estimates based on your inputs. While it's not a scientific measurement, it gives you a good understanding of your environmental impact and areas for improvement. The calculations are based on peer-reviewed research and government data sources.</p>
+                </div>
+            </div>
+
+            <h2>Calculator Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    What information do I need to calculate my carbon footprint?
+                </div>
+                <div class="faq-answer">
+                    <p>You'll need to provide information about:</p>
+                    <ul>
+                        <li>Weekly car miles driven</li>
+                        <li>Number of flights taken per year (short and long haul)</li>
+                        <li>Meat consumption frequency</li>
+                        <li>Monthly electricity usage (kWh)</li>
+                        <li>Household size</li>
+                    </ul>
+                    <p>Don't worry if you don't know exact numbers - estimates are fine and will still give you valuable insights.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    How do I find my monthly electricity usage?
+                </div>
+                <div class="faq-answer">
+                    <p>You can find this information on your electricity bill. Look for "kWh" (kilowatt-hours) used in the billing period. If you don't have access to your bill, you can estimate based on your home size and appliances. The average US household uses about 900 kWh per month.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    What if I don't know my exact numbers?
+                </div>
+                <div class="faq-answer">
+                    <p>That's perfectly fine! Our calculator is designed to work with estimates. Even rough estimates will give you valuable insights into your carbon footprint and areas for improvement. You can always recalculate with more accurate numbers later.</p>
+                </div>
+            </div>
+
+            <h2>Privacy and Data</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Is my personal information safe and private?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we take your privacy seriously. All calculations are performed locally in your browser, so your personal data never leaves your device unless you explicitly provide it (like subscribing to our newsletter). We don't store your carbon footprint calculations or personal information.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Do you sell my data to third parties?
+                </div>
+                <div class="faq-answer">
+                    <p>No, we never sell your personal data to third parties. We only collect minimal information (like email addresses for our newsletter) with your explicit consent, and we use this information only to provide our services to you.</p>
+                </div>
+            </div>
+
+            <h2>Reducing Your Carbon Footprint</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    What are the most effective ways to reduce my carbon footprint?
+                </div>
+                <div class="faq-answer">
+                    <p>The most effective actions depend on your current lifestyle, but generally include:</p>
+                    <ul>
+                        <li>Switching to renewable energy sources</li>
+                        <li>Reducing meat consumption</li>
+                        <li>Using public transportation or electric vehicles</li>
+                        <li>Improving home energy efficiency</li>
+                        <li>Flying less frequently</li>
+                    </ul>
+                    <p>Our calculator provides personalized recommendations based on your specific situation.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    How often should I recalculate my carbon footprint?
+                </div>
+                <div class="faq-answer">
+                    <p>We recommend recalculating your carbon footprint every 3-6 months, or whenever you make significant lifestyle changes such as moving to a new home, changing jobs, adopting new sustainable habits, or purchasing a new vehicle.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Are the products and services you recommend legitimate?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we carefully vet all recommended products and services. We only partner with companies that have proven track records in sustainability and environmental responsibility. However, we always recommend doing your own research before making significant purchases.</p>
+                </div>
+            </div>
+
+            <h2>Technical Issues</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    The calculator isn't working on my device. What should I do?
+                </div>
+                <div class="faq-answer">
+                    <p>Try these troubleshooting steps:</p>
+                    <ul>
+                        <li>Refresh the page and try again</li>
+                        <li>Clear your browser cache and cookies</li>
+                        <li>Make sure JavaScript is enabled in your browser</li>
+                        <li>Try using a different browser</li>
+                        <li>Check if you have any ad blockers that might be interfering</li>
+                    </ul>
+                    <p>If the problem persists, please contact our support team.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Can I use the calculator on my mobile device?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, our calculator is fully responsive and works on all devices including smartphones and tablets. The interface automatically adjusts to your screen size for the best user experience.</p>
+                </div>
+            </div>
+
+            <h2>Affiliate and Advertising</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    How do you make money if the calculator is free?
+                </div>
+                <div class="faq-answer">
+                    <p>We support our free service through:</p>
+                    <ul>
+                        <li>Google AdSense advertising</li>
+                        <li>Affiliate partnerships with eco-friendly companies</li>
+                        <li>Optional newsletter subscriptions</li>
+                    </ul>
+                    <p>This allows us to keep our calculator free while providing valuable recommendations for sustainable products and services.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Do you get paid for recommending products?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we participate in affiliate marketing programs with companies like Amazon, REI, EnergySage, and Ecobee. This means we may earn a small commission if you purchase products through our links. However, this doesn't affect the price you pay, and we only recommend products we genuinely believe in.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Still have questions?</strong> If you can't find the answer you're looking for, please don't hesitate to <a href="contact.html">contact us</a>. We're here to help!
+            </div>
+
+            <div class="cta-section">
+                <h3>Ready to Calculate Your Carbon Footprint?</h3>
+                <p>Now that you know how it works, try our free calculator and start your sustainability journey today.</p>
+                <a href="index.html#calculator" class="cta-button">Calculate My Carbon Footprint</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2024 CarbonChecks. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isOpen = answer.classList.contains('show');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.classList.remove('show');
+            });
+            
+            // Toggle current item
+            if (!isOpen) {
+                answer.classList.add('show');
+            }
+        }
+    </script>
+</body>
+</html>
