@@ -68,6 +68,7 @@
         header {
             background: rgba(255, 255, 255, 0.95);
             -webkit-backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             position: sticky;
@@ -85,8 +86,34 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #2d5a27;
+            background: linear-gradient(45deg, #2d5a27, #4CAF50, #2196F3, #00BCD4);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
+            animation: logoGlow 3s ease-in-out infinite;
+            position: relative;
+        }
+        
+        .logo::before {
+            content: '🌍';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            animation: earthRotate 4s linear infinite;
+        }
+        
+        @keyframes logoGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes earthRotate {
+            0% { transform: translateY(-50%) rotate(0deg); }
+            100% { transform: translateY(-50%) rotate(360deg); }
         }
         
         .nav-links {
@@ -189,12 +216,86 @@
             font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 800;
+            animation: fadeInUp 1s ease-out;
         }
         
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .hero-facts {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .fact-item {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        .fact-item:nth-child(1) { animation-delay: 0.6s; }
+        .fact-item:nth-child(2) { animation-delay: 0.8s; }
+        .fact-item:nth-child(3) { animation-delay: 1.0s; }
+        
+        .fact-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            animation: bounce 2s infinite;
+        }
+        
+        .fact-text {
+            flex: 1;
+        }
+        
+        .fact-number {
+            font-weight: 700;
+            color: #4CAF50;
+            font-size: 1.2rem;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
         }
         
         .cta-button {
@@ -503,6 +604,7 @@
             color: white;
             transition: background 0.3s ease;
             -webkit-backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
         
@@ -530,9 +632,483 @@
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
             gap: 2rem;
             margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            min-width: 200px;
+        }
+        
+        .newsletter-section {
+            grid-column: 4 / 6;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+        
+        .newsletter-section h3 {
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+        
+        .newsletter-form button {
+            padding: 0.8rem 1.5rem;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #45a049;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            text-decoration: none;
+            color: white;
+            transition: background 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: #4CAF50;
+        }
+        
+        .impact-stats {
+            grid-column: 1 / 3;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+        
+        .impact-stats h3 {
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.8rem 0;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-number {
+            font-weight: 700;
+            color: #4CAF50;
+            font-size: 1.1rem;
+        }
+        
+        /* Featured Products Section */
+        .featured-products {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 4rem 0;
+            margin: 2rem 0;
+        }
+        
+        .featured-products h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2d5a27;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .product-feature {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-badge.bestseller {
+            background: #FF6B35;
+            right: 20px;
+        }
+        
+        .product-badge.limited-time {
+            background: #E91E63;
+            right: 140px;
+            animation: pulse 2s infinite;
+        }
+        
+        .product-badge.popular {
+            background: #2196F3;
+            right: 20px;
+        }
+        
+        .product-badge.sale {
+            background: #FF5722;
+            right: 100px;
+            animation: pulse 2s infinite;
+        }
+        
+        .product-badge.new {
+            background: #9C27B0;
+            right: 20px;
+        }
+        
+        .product-badge.hot {
+            background: #F44336;
+            right: 60px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+        }
+        
+        .stock-warning {
+            background: #FFF3CD;
+            color: #856404;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            border-left: 4px solid #FFC107;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .product-feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2d5a27;
+        }
+        
+        .product-feature p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #4CAF50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-savings {
+            color: #28a745;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .product-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+        
+        .trust-indicators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .trust-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .trust-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #4CAF50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .trust-text {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .testimonials-section h3 {
+            font-size: 2rem;
+            color: #2d5a27;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+        
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #4CAF50;
+            font-family: serif;
+        }
+        
+        .testimonial-content p {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author strong {
+            color: #2d5a27;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-author span {
+            color: #4CAF50;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* Exit Intent Popup */
+        .exit-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .popup-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: popupSlideIn 0.5s ease-out;
+        }
+        
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .popup-content h3 {
+            color: #2d5a27;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .popup-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .popup-form {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .popup-form input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .popup-form button {
+            padding: 1rem 2rem;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .popup-form button:hover {
+            background: #45a049;
+        }
+        
+        .popup-guarantee {
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        @keyframes popupSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        
+        .trust-badge:hover {
+            transform: translateY(-2px);
+        }
+        
+        .badge-icon {
+            font-size: 1.2rem;
+        }
+        
+        .badge-text {
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
         
         .footer-section h3 {
@@ -716,16 +1292,145 @@
         <div class="container">
             <h1>Discover Your Carbon Footprint</h1>
             <p>Take control of your environmental impact with our comprehensive carbon footprint calculator. Get personalized insights and actionable steps to reduce your emissions today.</p>
-            <a href="#calculator" class="cta-button">Calculate Now - It's Free!</a>
+            
+            <div class="hero-facts">
+                <div class="fact-item">
+                    <span class="fact-icon">🌡️</span>
+                    <div class="fact-text">
+                        <span class="fact-number">1.5°C</span> - The critical temperature limit to prevent climate catastrophe
+                    </div>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-icon">⚡</span>
+                    <div class="fact-text">
+                        <span class="fact-number">$2,000</span> - Average annual savings from sustainable energy choices
+                    </div>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-icon">🌱</span>
+                    <div class="fact-text">
+                        <span class="fact-number">40%</span> - Carbon footprint reduction possible with simple lifestyle changes
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#calculator" class="cta-button">Calculate Now - Join 50,000+ Users!</a>
+            
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <span class="badge-icon">🔒</span>
+                    <span class="badge-text">SSL Secured</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="badge-icon">✅</span>
+                    <span class="badge-text">30-Day Guarantee</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="badge-icon">💰</span>
+                    <span class="badge-text">Money-Back Promise</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="badge-icon">🛡️</span>
+                    <span class="badge-text">Privacy Protected</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Ad Slot -->
-    <div class="container">
-        <div class="ad-slot">
-            <p>Advertisement Space</p>
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>🔥 Trending Now: Top Energy-Saving Products</h2>
+            <p class="section-subtitle">Join thousands of users saving money while reducing their carbon footprint</p>
+            
+            <div class="products-grid">
+                <div class="product-feature">
+                    <div class="product-badge bestseller">BESTSELLER</div>
+                    <div class="product-badge limited-time">LIMITED TIME</div>
+                    <h3>☀️ Solar Panel Kits</h3>
+                    <p>Complete DIY solar systems. Save $1,500-3,000 annually on electricity bills.</p>
+                    <div class="product-price">From $2,999 <span class="original-price">$3,999</span></div>
+                    <div class="product-savings">💰 Save up to $3,000/year</div>
+                    <div class="stock-warning">⚠️ Only 7 left in stock!</div>
+                    <a href="https://www.amazon.com/s?k=complete+solar+panel+kit&ref=as_li_ss_tl" class="product-cta" target="_blank" rel="noopener">Shop Solar Kits - 25% OFF!</a>
+                </div>
+                
+                <div class="product-feature">
+                    <div class="product-badge popular">POPULAR</div>
+                    <div class="product-badge sale">SALE</div>
+                    <h3>🌡️ Smart Thermostats</h3>
+                    <p>Save 10-23% on heating/cooling costs with intelligent temperature control.</p>
+                    <div class="product-price">From $169 <span class="original-price">$249</span></div>
+                    <div class="product-savings">💰 Save up to $400/year</div>
+                    <div class="stock-warning">⚡ 12 people viewing this now!</div>
+                    <a href="https://www.amazon.com/s?k=smart+thermostat+nest&ref=as_li_ss_tl" class="product-cta" target="_blank" rel="noopener">Shop Thermostats - 32% OFF!</a>
+                </div>
+                
+                <div class="product-feature">
+                    <div class="product-badge new">NEW</div>
+                    <div class="product-badge hot">HOT</div>
+                    <h3>📊 Energy Monitors</h3>
+                    <p>Real-time energy monitoring to identify waste and optimize usage patterns.</p>
+                    <div class="product-price">From $89 <span class="original-price">$149</span></div>
+                    <div class="product-savings">💰 Save up to $200/year</div>
+                    <div class="stock-warning">🔥 23 sold in last 24 hours!</div>
+                    <a href="https://www.amazon.com/s?k=home+energy+monitor&ref=as_li_ss_tl" class="product-cta" target="_blank" rel="noopener">Shop Monitors - 40% OFF!</a>
+                </div>
+            </div>
+            
+            <div class="testimonials-section">
+                <h3>💬 What Our Customers Say</h3>
+                <div class="testimonials-grid">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"I saved $2,400 in my first year with these products! My electricity bill went from $180 to $45 monthly."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Sarah M.</strong>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"The smart thermostat paid for itself in 6 months. Best investment I've ever made for my home!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Mike R.</strong>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"Reduced my carbon footprint by 60% and saved $1,800 annually. This website changed my life!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Jennifer L.</strong>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <span class="trust-number">50,000+</span>
+                    <span class="trust-text">Happy Customers</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number">$12M+</span>
+                    <span class="trust-text">Money Saved</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number">4.9★</span>
+                    <span class="trust-text">Average Rating</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number">24/7</span>
+                    <span class="trust-text">Support</span>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
     <!-- Calculator Section -->
     <section id="calculator" class="calculator-section">
@@ -928,9 +1633,24 @@
     <footer id="about">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>About CarbonChecks</h3>
-                    <p>We're committed to helping individuals understand and reduce their environmental impact through accurate calculations and actionable insights.</p>
+                <div class="impact-stats">
+                    <h3>🌍 Our Impact</h3>
+                    <div class="stat-item">
+                        <span>Users Helped</span>
+                        <span class="stat-number">50,000+</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>CO2 Reduced</span>
+                        <span class="stat-number">2.5M tons</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Money Saved</span>
+                        <span class="stat-number">$12M+</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Countries</span>
+                        <span class="stat-number">120+</span>
+                    </div>
                 </div>
                 
                 <div class="footer-section">
@@ -954,20 +1674,6 @@
                     </ul>
                 </div>
                 
-                <div class="footer-section" id="contact">
-                    <h3>Newsletter</h3>
-                    <p>Get weekly carbon reduction tips and updates</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" required>
-                        <button type="submit">Subscribe</button>
-                    </form>
-                    <div class="social-links">
-                        <a href="#" target="_blank" rel="noopener">📧</a>
-                        <a href="#" target="_blank" rel="noopener">📱</a>
-                        <a href="#" target="_blank" rel="noopener">💼</a>
-                    </div>
-                </div>
-                
                 <div class="footer-section">
                     <h3>Legal</h3>
                     <ul>
@@ -976,6 +1682,21 @@
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
+                
+                <div class="newsletter-section">
+                    <h3>📧 Stay Updated</h3>
+                    <p>Get weekly carbon reduction tips and exclusive deals on sustainable products</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="#" target="_blank" rel="noopener" title="Email">📧</a>
+                        <a href="#" target="_blank" rel="noopener" title="Twitter">🐦</a>
+                        <a href="#" target="_blank" rel="noopener" title="LinkedIn">💼</a>
+                        <a href="#" target="_blank" rel="noopener" title="Instagram">📸</a>
+                    </div>
+                </div>
             </div>
             
             <div class="footer-bottom">
@@ -983,6 +1704,20 @@
             </div>
         </div>
     </footer>
+
+    <!-- Exit Intent Popup -->
+    <div id="exitPopup" class="exit-popup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closeExitPopup()">&times;</button>
+            <h3>🚨 Wait! Don't Miss Out!</h3>
+            <p>Get <strong>10% OFF</strong> your first sustainable energy product when you subscribe to our newsletter!</p>
+            <div class="popup-form">
+                <input type="email" placeholder="Enter your email" id="popupEmail">
+                <button onclick="subscribePopup()">Get 10% OFF Now!</button>
+            </div>
+            <p class="popup-guarantee">✅ No spam, unsubscribe anytime</p>
+        </div>
+    </div>
 
     <script>
         // Carbon Footprint Calculator
@@ -1108,15 +1843,38 @@
         });
         
             // Add some interactivity to blog cards
-            document.querySelectorAll('.blog-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    const link = this.querySelector('.blog-link');
-                    if (link) {
-                        // In a real implementation, this would navigate to the blog post
-                        alert('This would navigate to the full blog article. In a real implementation, you would link to your blog posts here.');
-                    }
-                });
+            // Blog card click handlers - removed placeholder alert
+            
+            // Exit Intent Popup
+            let exitIntentShown = false;
+            let mouseY = 0;
+            
+            document.addEventListener('mouseout', function(e) {
+                if (e.clientY <= 0 && !exitIntentShown) {
+                    showExitPopup();
+                }
             });
+            
+            function showExitPopup() {
+                if (!exitIntentShown) {
+                    document.getElementById('exitPopup').style.display = 'flex';
+                    exitIntentShown = true;
+                }
+            }
+            
+            function closeExitPopup() {
+                document.getElementById('exitPopup').style.display = 'none';
+            }
+            
+            function subscribePopup() {
+                const email = document.getElementById('popupEmail').value;
+                if (email) {
+                    alert('Thank you! Check your email for your 10% discount code.');
+                    closeExitPopup();
+                } else {
+                    alert('Please enter your email address.');
+                }
+            }
             
             // Mobile menu toggle
             function toggleMobileMenu() {
