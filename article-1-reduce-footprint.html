@@ -8,6 +8,10 @@
     <meta name="keywords" content="reduce carbon footprint, eco-friendly tips, sustainable living, climate action, green lifestyle">
     <meta name="author" content="CarbonChecks">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="energy-saving.png">
+    <link rel="shortcut icon" type="image/png" href="energy-saving.png">
+    
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="10 Simple Ways to Reduce Your Carbon Footprint Today">
     <meta property="og:description" content="Discover practical, actionable steps you can take immediately to lower your environmental impact.">
@@ -88,34 +92,39 @@
         .nav-links a {
             text-decoration: none;
             color: #333;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 25px;
             position: relative;
             overflow: hidden;
+            border: 2px solid transparent;
+            display: inline-block;
         }
         
         .nav-links a::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg, #2d5a27, #4CAF50);
-            transition: left 0.3s ease;
+            opacity: 0;
+            transition: opacity 0.3s ease;
             z-index: -1;
+            border-radius: 25px;
         }
         
         .nav-links a:hover {
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(45, 90, 39, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(45, 90, 39, 0.4);
+            border-color: #2d5a27;
         }
         
         .nav-links a:hover::before {
-            left: 0;
+            opacity: 1;
         }
         
         /* Article Content */

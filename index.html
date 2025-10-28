@@ -8,6 +8,10 @@
     <meta name="keywords" content="carbon footprint calculator, CO2 emissions, environmental impact, climate change, carbon offset, eco-friendly, sustainability">
     <meta name="author" content="CarbonChecks">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="energy-saving.png">
+    <link rel="shortcut icon" type="image/png" href="energy-saving.png">
+    
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Free Carbon Footprint Calculator – Estimate Your Environmental Impact">
     <meta property="og:description" content="Calculate your yearly CO2 footprint based on travel, energy, and lifestyle. Learn how to offset and reduce your impact.">
@@ -95,18 +99,21 @@
             position: relative;
             overflow: hidden;
             border: 2px solid transparent;
+            display: inline-block;
         }
         
         .nav-links a::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg, #2d5a27, #4CAF50);
-            transition: left 0.3s ease;
+            opacity: 0;
+            transition: opacity 0.3s ease;
             z-index: -1;
+            border-radius: 25px;
         }
         
         .nav-links a:hover {
@@ -117,7 +124,7 @@
         }
         
         .nav-links a:hover::before {
-            left: 0;
+            opacity: 1;
         }
         
         /* Mobile Menu */
