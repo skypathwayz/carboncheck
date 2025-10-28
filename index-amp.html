@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ⚡ lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +7,6 @@
     <meta name="description" content="Calculate your yearly CO2 footprint based on travel, energy, and lifestyle. Learn how to offset and reduce your impact with actionable tips and eco-friendly solutions.">
     <meta name="keywords" content="carbon footprint calculator, CO2 emissions, environmental impact, climate change, carbon offset, eco-friendly, sustainability">
     <meta name="author" content="CarbonChecks">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="energy-saving.png">
-    <link rel="shortcut icon" type="image/png" href="energy-saving.png">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Free Carbon Footprint Calculator – Estimate Your Environmental Impact">
@@ -24,26 +20,26 @@
     <meta name="twitter:title" content="Free Carbon Footprint Calculator – Estimate Your Environmental Impact">
     <meta name="twitter:description" content="Calculate your yearly CO2 footprint based on travel, energy, and lifestyle. Learn how to offset and reduce your impact.">
     
-    <!-- AMP Link -->
-    <link rel="amphtml" href="index-amp.html">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="energy-saving.png">
+    <link rel="shortcut icon" type="image/png" href="energy-saving.png">
     
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5918874419248577" crossorigin="anonymous"></script>
+    <!-- AMP Boilerplate -->
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     
-    <!-- Skimlinks -->
-    <script type="text/javascript" src="https://s.skimresources.com/js/293633X1780866.skimlinks.js"></script>
+    <!-- AMP Scripts -->
+    <script async custom-element="amp-skimlinks" src="https://cdn.ampproject.org/v0/amp-skimlinks-0.1.js"></script>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4GP5ZEMD1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-F4GP5ZEMD1');
-    </script>
+    <!-- Google AdSense for AMP -->
+    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
     
-    <style>
+    <!-- Google Analytics for AMP -->
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    
+    <style amp-custom>
         * {
             margin: 0;
             padding: 0;
@@ -67,7 +63,6 @@
         /* Header */
         header {
             background: rgba(255, 255, 255, 0.95);
-            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             position: sticky;
@@ -98,8 +93,8 @@
         .nav-links a {
             text-decoration: none;
             color: #333;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            transition: color 0.3s ease;
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
             position: relative;
@@ -131,49 +126,6 @@
         
         .nav-links a:hover::before {
             opacity: 1;
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #2d5a27;
-        }
-        
-        .mobile-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 0 0 15px 15px;
-            padding: 1rem;
-        }
-        
-        .mobile-menu.show {
-            display: block;
-        }
-        
-        .mobile-menu a {
-            display: block;
-            padding: 1rem;
-            text-decoration: none;
-            color: #333;
-            border-bottom: 1px solid #eee;
-            transition: color 0.3s ease;
-        }
-        
-        .mobile-menu a:hover {
-            color: #2d5a27;
-        }
-        
-        .mobile-menu a:last-child {
-            border-bottom: none;
         }
         
         /* Hero Section */
@@ -502,7 +454,6 @@
             text-decoration: none;
             color: white;
             transition: background 0.3s ease;
-            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
         
@@ -565,65 +516,6 @@
             color: #ccc;
         }
         
-        /* Newsletter Form */
-        .newsletter-form {
-            display: flex;
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-        
-        .newsletter-form input {
-            flex: 1;
-            padding: 0.8rem;
-            border: 2px solid #4a6b3a;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 0.9rem;
-        }
-        
-        .newsletter-form input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .newsletter-form button {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        
-        .newsletter-form button:hover {
-            background: #45a049;
-        }
-        
-        /* Social Links */
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            font-size: 1.2rem;
-            transition: background 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
@@ -646,24 +538,12 @@
                 display: none;
             }
             
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
             .blog-grid {
                 grid-template-columns: 1fr;
             }
             
             .affiliate-links {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
-            }
-            
-            .newsletter-form input {
-                margin-bottom: 0.5rem;
+                grid-template-columns: 1fr;
             }
         }
         
@@ -687,6 +567,30 @@
     </style>
 </head>
 <body>
+    <!-- AMP Skimlinks -->
+    <amp-skimlinks 
+        layout="nodisplay" 
+        publisher-code="293633X1780866"
+        custom-tracking-id="carbonchecks-amp"
+        link-selector=".affiliate-link, .blog-link, .cta-button">
+    </amp-skimlinks>
+    
+    <!-- Google Analytics -->
+    <amp-analytics type="gtag" data-credentials="include">
+        <script type="application/json">
+        {
+            "vars": {
+                "gtag_id": "G-F4GP5ZEMD1",
+                "config": {
+                    "G-F4GP5ZEMD1": {
+                        "groups": "default"
+                    }
+                }
+            }
+        }
+        </script>
+    </amp-analytics>
+    
     <!-- Header -->
     <header>
         <div class="container">
@@ -696,17 +600,10 @@
                     <ul class="nav-links">
                         <li><a href="#calculator">Calculator</a></li>
                         <li><a href="#blog">Articles</a></li>
-                        <li><a href="about-us.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
-                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
                 </nav>
-                <div class="mobile-menu" id="mobileMenu">
-                    <a href="#calculator">Calculator</a>
-                    <a href="#blog">Articles</a>
-                    <a href="about-us.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </div>
             </div>
         </div>
     </header>
@@ -723,7 +620,7 @@
     <!-- Ad Slot -->
     <div class="container">
         <div class="ad-slot">
-            <p>Advertisement Space</p>
+            <amp-ad width="728" height="90" type="adsense" data-ad-client="ca-pub-5918874419248577" data-ad-slot="1234567890"></amp-ad>
         </div>
     </div>
 
@@ -733,7 +630,7 @@
             <h2 class="calculator-title">Carbon Footprint Calculator</h2>
             <p class="calculator-subtitle">Enter your lifestyle details below to get an accurate estimate of your annual CO2 emissions</p>
             
-            <form class="calculator-form" id="carbonForm">
+            <form class="calculator-form" id="carbonForm" method="post" action-xhr="/api/calculate" target="_top">
                 <div class="form-group">
                     <label for="carMiles">Weekly Car Miles</label>
                     <input type="number" id="carMiles" name="carMiles" placeholder="e.g., 150" min="0" required>
@@ -801,7 +698,7 @@
     </section>
 
     <!-- Affiliate Section -->
-   <section class="affiliate-section">
+    <section class="affiliate-section">
         <div class="container">
             <h2 class="affiliate-title">Take Action Now</h2>
             <p class="affiliate-description">Ready to make a real difference? Explore these trusted solutions to reduce and offset your carbon footprint.</p>
@@ -832,29 +729,29 @@
                     <p>Learn about home charging options and cost savings</p>
                 </a>
                 
-                <a href="https://www.amazon.com/s?k=solar+panel+kits&ref=as_li_ss_tl" target="_blank" rel="noopener" class="affiliate-link">
-                    <h4>☀️ Solar Panel Kits</h4>
-                    <p>Complete solar panel systems that can save you $1,500-3,000 annually</p>
+                <a href="https://www.rei.com/?irgwc=1&clickid=6643343" target="_blank" rel="noopener" class="affiliate-link">
+                    <h4>💧 Sustainable Lifestyle</h4>
+                    <p>Shop REI for eco-friendly outdoor gear and sustainable products</p>
                 </a>
                 
-                <a href="https://www.amazon.com/s?k=smart+thermostat+nest&ref=as_li_ss_tl" target="_blank" rel="noopener" class="affiliate-link">
-                    <h4>🌡️ Smart Thermostats</h4>
-                    <p>Save 10-23% on heating/cooling costs with intelligent temperature control</p>
+                <a href="https://www.patagonia.com/?utm_source=affiliate&utm_medium=referral&utm_campaign=carbonchecks" target="_blank" rel="noopener" class="affiliate-link">
+                    <h4>🧥 Sustainable Fashion</h4>
+                    <p>Patagonia's eco-friendly outdoor clothing and gear</p>
                 </a>
                 
-                <a href="https://www.amazon.com/s?k=home+energy+monitor&ref=as_li_ss_tl" target="_blank" rel="noopener" class="affiliate-link">
-                    <h4>📊 Energy Monitors</h4>
-                    <p>Real-time energy monitoring to identify waste and optimize usage</p>
+                <a href="https://www.grove.co/?utm_source=affiliate&utm_medium=referral&utm_campaign=carbonchecks" target="_blank" rel="noopener" class="affiliate-link">
+                    <h4>🧽 Eco-Friendly Home</h4>
+                    <p>Grove Collaborative for sustainable home products</p>
                 </a>
                 
-                <a href="https://www.amazon.com/s?k=heat+pump+system&ref=as_li_ss_tl" target="_blank" rel="noopener" class="affiliate-link">
-                    <h4>🔥 Heat Pump Systems</h4>
-                    <p>Energy-efficient heating and cooling that saves 50% on energy costs</p>
+                <a href="https://www.allbirds.com/?utm_source=affiliate&utm_medium=referral&utm_campaign=carbonchecks" target="_blank" rel="noopener" class="affiliate-link">
+                    <h4>👟 Sustainable Footwear</h4>
+                    <p>Allbirds comfortable shoes made from natural materials</p>
                 </a>
                 
-                <a href="https://www.amazon.com/s?k=home+insulation+materials&ref=as_li_ss_tl" target="_blank" rel="noopener" class="affiliate-link">
-                    <h4>🏠 Insulation Materials</h4>
-                    <p>High-quality insulation that reduces heating/cooling costs by up to 30%</p>
+                <a href="https://www.thredup.com/?utm_source=affiliate&utm_medium=referral&utm_campaign=carbonchecks" target="_blank" rel="noopener" class="affiliate-link">
+                    <h4>♻️ Second-Hand Fashion</h4>
+                    <p>ThredUp for sustainable fashion at amazing prices</p>
                 </a>
             </div>
         </div>
@@ -902,24 +799,6 @@
                         <a href="article-4-hidden-costs.html" class="blog-link">Read More</a>
                     </div>
                 </article>
-                
-                <article class="blog-card">
-                    <div class="blog-image">🚗</div>
-                    <div class="blog-content">
-                        <h3>Best Electric Vehicles Under $30,000: Complete 2024 Guide</h3>
-                        <p>Discover the best affordable electric vehicles under $30,000. Compare prices, features, and savings potential of budget-friendly EVs that reduce your carbon footprint.</p>
-                        <a href="article-5-electric-vehicles.html" class="blog-link">Read More</a>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <div class="blog-image">👕</div>
-                    <div class="blog-content">
-                        <h3>Sustainable Fashion Guide: 10 Eco-Friendly Brands That Save the Planet</h3>
-                        <p>Discover the best sustainable fashion brands that reduce your carbon footprint. From Patagonia to Allbirds, find eco-friendly clothing that's stylish and affordable.</p>
-                        <a href="article-6-sustainable-fashion.html" class="blog-link">Read More</a>
-                    </div>
-                </article>
             </div>
         </div>
     </section>
@@ -938,42 +817,28 @@
                     <ul>
                         <li><a href="#calculator">Carbon Calculator</a></li>
                         <li><a href="#blog">Articles</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://climate.nasa.gov/" target="_blank" rel="noopener">Climate Science</a></li>
-                        <li><a href="https://www.epa.gov/recycle" target="_blank" rel="noopener">Sustainability Tips</a></li>
-                        <li><a href="https://www.goldstandard.org/" target="_blank" rel="noopener">Carbon Offset Guide</a></li>
-                        <li><a href="https://www.climate.gov/news-features" target="_blank" rel="noopener">Environmental News</a></li>
+                        <li><a href="#">Climate Science</a></li>
+                        <li><a href="#">Sustainability Tips</a></li>
+                        <li><a href="#">Carbon Offset Guide</a></li>
+                        <li><a href="#">Environmental News</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section" id="contact">
-                    <h3>Newsletter</h3>
-                    <p>Get weekly carbon reduction tips and updates</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" required>
-                        <button type="submit">Subscribe</button>
-                    </form>
-                    <div class="social-links">
-                        <a href="#" target="_blank" rel="noopener">📧</a>
-                        <a href="#" target="_blank" rel="noopener">📱</a>
-                        <a href="#" target="_blank" rel="noopener">💼</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Legal</h3>
+                    <h3>Contact</h3>
                     <ul>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html">Terms of Service</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="mailto:info@carbonchecks.com">info@carbonchecks.com</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -983,165 +848,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Carbon Footprint Calculator
-        document.getElementById('carbonForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const carMiles = parseFloat(document.getElementById('carMiles').value) || 0;
-            const shortFlights = parseInt(document.getElementById('shortFlights').value) || 0;
-            const longFlights = parseInt(document.getElementById('longFlights').value) || 0;
-            const meatConsumption = document.getElementById('meatConsumption').value;
-            const electricity = parseFloat(document.getElementById('electricity').value) || 0;
-            const householdSize = parseInt(document.getElementById('householdSize').value) || 1;
-            
-            // Calculate carbon footprint (simplified calculations)
-            let totalCO2 = 0;
-            
-            // Car emissions (0.411 kg CO2 per mile)
-            totalCO2 += (carMiles * 52 * 0.411) / 1000; // Convert to tonnes
-            
-            // Flight emissions
-            totalCO2 += (shortFlights * 0.6); // Short haul flights
-            totalCO2 += (longFlights * 2.5); // Long haul flights
-            
-            // Meat consumption emissions
-            const meatMultiplier = {
-                'daily': 2.5,
-                'weekly': 1.5,
-                'occasional': 0.8,
-                'rarely': 0.3,
-                'never': 0.1
-            };
-            totalCO2 += meatMultiplier[meatConsumption] || 0;
-            
-            // Electricity emissions (0.4 kg CO2 per kWh average)
-            totalCO2 += (electricity * 12 * 0.4) / 1000; // Convert to tonnes
-            
-            // Adjust for household size
-            totalCO2 = totalCO2 / householdSize;
-            
-            // Display results
-            displayResults(totalCO2);
-        });
-        
-        function displayResults(co2) {
-            const resultsDiv = document.getElementById('results');
-            const emoji = document.getElementById('resultEmoji');
-            const title = document.getElementById('resultTitle');
-            const number = document.getElementById('resultNumber');
-            const description = document.getElementById('resultDescription');
-            const tipsList = document.getElementById('tipsList');
-            
-            // Determine impact level
-            let impactLevel, impactClass, tips;
-            
-            if (co2 < 8) {
-                impactLevel = 'Low Impact';
-                impactClass = 'impact-low';
-                emoji.textContent = '✅';
-                tips = [
-                    'Great job! You\'re already making a positive impact',
-                    'Consider sharing your sustainable practices with others',
-                    'Look into renewable energy options for your home',
-                    'Continue your eco-friendly lifestyle choices'
-                ];
-            } else if (co2 < 16) {
-                impactLevel = 'Medium Impact';
-                impactClass = 'impact-medium';
-                emoji.textContent = '⚠️';
-                tips = [
-                    'Switch to renewable energy sources',
-                    'Reduce meat consumption to 2-3 times per week',
-                    'Use public transportation or carpool more often',
-                    'Invest in energy-efficient appliances'
-                ];
-            } else {
-                impactLevel = 'High Impact';
-                impactClass = 'impact-high';
-                emoji.textContent = '❌';
-                tips = [
-                    'Consider switching to an electric vehicle',
-                    'Reduce flights and choose train travel when possible',
-                    'Switch to a plant-based diet',
-                    'Invest in home solar panels',
-                    'Conduct a home energy audit'
-                ];
-            }
-            
-            // Update display
-            title.textContent = impactLevel;
-            title.className = `result-title ${impactClass}`;
-            number.textContent = co2.toFixed(1);
-            number.className = `result-number ${impactClass}`;
-            description.textContent = 'tonnes CO2 per year';
-            
-            // Update tips
-            tipsList.innerHTML = '';
-            tips.forEach(tip => {
-                const li = document.createElement('li');
-                li.textContent = tip;
-                tipsList.appendChild(li);
-            });
-            
-            // Show results
-            resultsDiv.classList.add('show');
-            
-            // Scroll to results
-            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-            // Add some interactivity to blog cards
-            document.querySelectorAll('.blog-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    const link = this.querySelector('.blog-link');
-                    if (link) {
-                        // In a real implementation, this would navigate to the blog post
-                        alert('This would navigate to the full blog article. In a real implementation, you would link to your blog posts here.');
-                    }
-                });
-            });
-            
-            // Mobile menu toggle
-            function toggleMobileMenu() {
-                const mobileMenu = document.getElementById('mobileMenu');
-                mobileMenu.classList.toggle('show');
-            }
-            
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(event) {
-                const mobileMenu = document.getElementById('mobileMenu');
-                const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-                
-                if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-                    mobileMenu.classList.remove('show');
-                }
-            });
-            
-            // Newsletter form handling
-            document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = this.querySelector('input[type="email"]').value;
-                alert('Thank you for subscribing! We\'ll send you weekly carbon reduction tips. (In production, this would connect to your email service)');
-                this.reset();
-            });
-            
-        </script>
 </body>
 </html>

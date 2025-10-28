@@ -27,6 +27,9 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5918874419248577" crossorigin="anonymous"></script>
     
+    <!-- Skimlinks -->
+    <script type="text/javascript" src="https://s.skimresources.com/js/293633X1780866.skimlinks.js"></script>
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4GP5ZEMD1"></script>
     <script>
@@ -107,8 +110,8 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            right: 0;
+            bottom: 0;
             background: linear-gradient(135deg, #2d5a27, #4CAF50);
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -153,6 +156,42 @@
             padding: 3rem;
             margin-bottom: 3rem;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Sidebar Affiliate Widget */
+        .sidebar-widget {
+            background: linear-gradient(135deg, #2d5a27, #4CAF50);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .sidebar-widget h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .sidebar-widget p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .sidebar-widget .affiliate-btn {
+            display: inline-block;
+            background: white;
+            color: #2d5a27;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar-widget .affiliate-btn:hover {
+            transform: translateY(-2px);
         }
         
         .article-content h2 {
@@ -386,6 +425,13 @@
                 <h3>Ready to Calculate Your Impact?</h3>
                 <p>Use our carbon footprint calculator to see how these changes can reduce your environmental impact and save you money.</p>
                 <a href="index.html#calculator" class="cta-button">Calculate My Carbon Footprint</a>
+            </div>
+            
+            <!-- Sidebar Affiliate Widget -->
+            <div class="sidebar-widget">
+                <h3>💡 Ready to Start Saving?</h3>
+                <p>Get the best deals on energy-efficient products and start reducing your carbon footprint today!</p>
+                <a href="https://www.amazon.com/s?k=energy+efficient+appliances&tag=skypathwayz-21" target="_blank" rel="noopener" class="affiliate-btn">Shop Energy-Efficient Products</a>
             </div>
         </article>
     </div>
