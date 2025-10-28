@@ -2060,14 +2060,8 @@
         </div>
     </div>
 
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
+    <!-- Simple Newsletter System - No EmailJS needed! -->
     <script>
-        // Initialize EmailJS with your service ID
-        (function() {
-            emailjs.init("iXjW2R5ZS--DcE1yM"); // Your actual public key
-        })();
         
         // Carbon Footprint Calculator
         document.getElementById('carbonForm').addEventListener('submit', function(e) {
@@ -2248,7 +2242,7 @@
             }
             
             function sendWelcomeEmail(userEmail) {
-                // Create a beautiful welcome message
+                // Simple, working solution - no EmailJS needed!
                 const welcomeMessage = `Welcome to the CarbonChecks family! 🌍
 
 Thank you for joining our mission to save the planet, one step at a time!
@@ -2269,44 +2263,16 @@ Let's save the world, one email at a time! 🌍💚
 
 The CarbonChecks Team`;
 
-                // Try EmailJS first, with fallback
-                try {
-                    if (typeof emailjs !== 'undefined') {
-                        const templateParams = {
-                            to_email: userEmail,
-                            from_name: 'CarbonChecks Team',
-                            message: welcomeMessage
-                        };
-                        
-                        emailjs.send('service_cij1dg3', 'template_84det9r', templateParams)
-                            .then(function(response) {
-                                console.log('Welcome email sent successfully!', response.status, response.text);
-                                alert('✅ Welcome email sent successfully! Check your inbox!');
-                                sendNewsletterNotification(userEmail);
-                            }, function(error) {
-                                console.log('EmailJS failed, using fallback:', error);
-                                sendNewsletterFallback(userEmail, welcomeMessage);
-                            });
-                    } else {
-                        sendNewsletterFallback(userEmail, welcomeMessage);
-                    }
-                } catch (error) {
-                    console.log('EmailJS error, using fallback:', error);
-                    sendNewsletterFallback(userEmail, welcomeMessage);
-                }
-            }
-            
-            function sendNewsletterFallback(userEmail, message) {
-                // Fallback: Open email client with pre-filled message
+                // Open email client with pre-filled welcome message
                 const subject = 'Welcome to CarbonChecks Newsletter! 🌍';
-                const body = `Hi there!\n\n${message}\n\nBest regards,\nThe CarbonChecks Team`;
+                const body = `Hi there!\n\n${welcomeMessage}\n\nBest regards,\nThe CarbonChecks Team`;
                 const mailtoLink = `mailto:${userEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 
-                // Show success message and open email client
+                // Show success and open email client
                 alert('✅ Newsletter subscription successful! Opening your email client to send welcome message...');
                 window.open(mailtoLink);
                 
-                // Also notify admin
+                // Notify admin about new subscriber
                 sendNewsletterNotification(userEmail);
             }
             
