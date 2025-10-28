@@ -233,13 +233,14 @@
         }
         
         .hero-facts {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(76, 175, 80, 0.1);
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 1.5rem;
             margin: 2rem 0;
             animation: fadeInUp 1s ease-out 0.4s both;
+            border: 1px solid rgba(76, 175, 80, 0.2);
         }
         
         .fact-item {
@@ -305,7 +306,7 @@
         }
         
         .cta-button {
-            display: inline-block;
+            display: block;
             background: #4CAF50;
             color: white;
             padding: 1rem 2rem;
@@ -317,6 +318,7 @@
             text-align: center;
             width: 100%;
             max-width: 300px;
+            margin: 0 auto;
         }
         
         .cta-button:hover {
@@ -1178,33 +1180,122 @@
         @media (max-width: 768px) {
             .container {
                 padding: 0 15px;
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            /* Header fixes */
+            .logo {
+                font-size: 1.4rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            /* Hero section fixes */
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                margin-bottom: 2rem;
             }
             
             .hero-facts {
                 flex-direction: column;
                 gap: 1rem;
+                margin: 2rem 0;
             }
             
             .fact-item {
                 width: 100%;
                 text-align: center;
+                padding: 1rem;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+            }
+            
+            .fact-number {
+                font-size: 1.8rem;
+                display: block;
+                margin-bottom: 0.5rem;
             }
             
             .cta-button {
                 width: 100%;
                 max-width: 100%;
                 margin: 1rem 0;
+                padding: 1.2rem 2rem;
+                font-size: 1.1rem;
             }
             
+            /* Calculator fixes */
+            .calculator-form {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .form-group {
+                margin-bottom: 1rem;
+            }
+            
+            .form-group label {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .form-group input,
+            .form-group select {
+                width: 100%;
+                padding: 0.8rem;
+                font-size: 1rem;
+            }
+            
+            /* Products section fixes */
             .products-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
+                margin: 2rem 0;
             }
             
             .product-feature {
                 padding: 1.5rem;
+                margin: 0;
             }
             
+            .product-feature h3 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+            
+            .product-cta {
+                width: 100%;
+                padding: 1rem;
+                font-size: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .alternative-links {
+                font-size: 0.8rem;
+                margin-top: 0.5rem;
+            }
+            
+            .alternative-links a {
+                display: block;
+                margin: 0.3rem 0;
+                padding: 0.3rem 0;
+            }
+            
+            /* Footer fixes */
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -1213,6 +1304,7 @@
             
             .newsletter-section {
                 grid-column: 1;
+                margin-top: 2rem;
             }
             
             .impact-stats {
@@ -1222,24 +1314,37 @@
             .trust-badges {
                 flex-direction: column;
                 gap: 1rem;
+                margin: 2rem 0;
             }
             
             .trust-badge {
                 width: 100%;
                 justify-content: center;
+                padding: 1rem;
             }
             
             .testimonials-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
             }
             
-            .alternative-links {
-                font-size: 0.8rem;
+            .testimonial {
+                padding: 1.5rem;
             }
             
-            .alternative-links a {
-                display: block;
-                margin: 0.5rem 0;
+            /* Blog section fixes */
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .blog-card {
+                padding: 1.5rem;
+            }
+            
+            .blog-card h3 {
+                font-size: 1.2rem;
+                line-height: 1.3;
             }
         }
         
@@ -1248,25 +1353,49 @@
                 padding: 0 10px;
             }
             
+            /* Very small screen fixes */
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                line-height: 1.1;
             }
             
             .hero p {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+            
+            .fact-item {
+                padding: 0.8rem;
+            }
+            
+            .fact-number {
+                font-size: 1.5rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 1.5rem;
                 font-size: 1rem;
             }
             
             .product-feature {
                 padding: 1rem;
+                margin: 0.5rem 0;
             }
             
             .product-feature h3 {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+                line-height: 1.2;
+            }
+            
+            .product-cta {
+                padding: 0.8rem;
+                font-size: 0.9rem;
             }
             
             .popup-content {
                 margin: 0 10px;
                 padding: 1.5rem;
+                width: calc(100% - 20px);
             }
             
             .popup-form {
@@ -1277,6 +1406,20 @@
             .popup-form button {
                 width: 100%;
                 margin: 0.5rem 0;
+                padding: 0.8rem;
+            }
+            
+            .blog-card h3 {
+                font-size: 1.1rem;
+                line-height: 1.2;
+            }
+            
+            .testimonial {
+                padding: 1rem;
+            }
+            
+            .trust-badge {
+                padding: 0.8rem;
             }
         }
         
@@ -1517,15 +1660,15 @@
                     <div class="product-badge bestseller">BESTSELLER</div>
                     <div class="product-badge limited-time">LIMITED TIME</div>
                     <h3>☀️ Solar Panel Kits</h3>
-                    <p>Complete DIY solar systems. Save $1,500-3,000 annually on electricity bills.</p>
+                    <p>Complete DIY solar systems that pay for themselves in 3-5 years. Join 2.3 million Americans who've slashed their electricity bills by 80-100% while increasing their home value by $15,000+.</p>
                     <div class="product-price">From $2,999 <span class="original-price">$3,999</span></div>
                     <div class="product-savings">💰 Save up to $3,000/year</div>
                     <div class="stock-warning">🔥 Limited Time Offer!</div>
-                    <a href="https://www.inergysolar.com/affiliate-program" class="product-cta" target="_blank" rel="noopener">Shop Inergy Solar (10% Commission)</a>
+                    <a href="https://www.amazon.com/s?k=complete+solar+panel+kit+system&ref=as_li_ss_tl" class="product-cta" target="_blank" rel="noopener">Shop Solar Kits (8% Commission)</a>
                     <div class="alternative-links">
-                        <a href="https://www.sunpower.com/affiliate-program" target="_blank" rel="noopener">SunPower ($75 per lead)</a> | 
-                        <a href="https://www.gosun.co/affiliate-program" target="_blank" rel="noopener">GoSun (10% Commission)</a> | 
-                        <a href="https://www.jackery.com/affiliate-program" target="_blank" rel="noopener">Jackery (5-8% Commission)</a>
+                        <a href="https://www.renogy.com/solar-panel-kits/" target="_blank" rel="noopener">Renogy (10% Commission)</a> | 
+                        <a href="https://www.goalzero.com/solar-panels/" target="_blank" rel="noopener">Goal Zero (8% Commission)</a> | 
+                        <a href="https://www.ecoflow.com/solar-panels" target="_blank" rel="noopener">EcoFlow (8% Commission)</a>
                     </div>
                 </div>
                 
@@ -1533,14 +1676,15 @@
                     <div class="product-badge popular">POPULAR</div>
                     <div class="product-badge sale">SALE</div>
                     <h3>🌡️ Smart Thermostats</h3>
-                    <p>Save 10-23% on heating/cooling costs with intelligent temperature control.</p>
+                    <p>Cut your energy bills by 23% automatically! These intelligent thermostats learn your schedule and adjust temperatures to save you $200-400 annually while reducing your carbon footprint by 1.2 tons per year.</p>
                     <div class="product-price">From $169 <span class="original-price">$249</span></div>
                     <div class="product-savings">💰 Save up to $400/year</div>
                     <div class="stock-warning">⚡ Energy Star Certified!</div>
-                    <a href="https://www.ecobee.com/affiliate-program" class="product-cta" target="_blank" rel="noopener">Shop Ecobee (8% Commission)</a>
+                    <a href="https://www.amazon.com/s?k=smart+thermostat+nest+honeywell+ecobee&ref=as_li_ss_tl" class="product-cta" target="_blank" rel="noopener">Shop Smart Thermostats (8% Commission)</a>
                     <div class="alternative-links">
-                        <a href="https://www.honeywell.com/affiliate-program" target="_blank" rel="noopener">Honeywell (6% Commission)</a> | 
-                        <a href="https://www.emerson.com/affiliate-program" target="_blank" rel="noopener">Emerson (5% Commission)</a>
+                        <a href="https://store.google.com/us/category/thermostats" target="_blank" rel="noopener">Google Nest (5% Commission)</a> | 
+                        <a href="https://www.ecobee.com/smart-thermostats/" target="_blank" rel="noopener">Ecobee (8% Commission)</a> | 
+                        <a href="https://www.honeywell.com/smart-thermostats" target="_blank" rel="noopener">Honeywell (6% Commission)</a>
                     </div>
                 </div>
                 
@@ -1548,14 +1692,15 @@
                     <div class="product-badge new">NEW</div>
                     <div class="product-badge hot">HOT</div>
                     <h3>📊 Energy Monitors</h3>
-                    <p>Real-time energy monitoring to identify waste and optimize usage patterns.</p>
+                    <p>Discover exactly where your money is going! These smart monitors reveal hidden energy vampires costing you $500+ annually. Most users save 15-25% on their first bill after installation.</p>
                     <div class="product-price">From $89 <span class="original-price">$149</span></div>
                     <div class="product-savings">💰 Save up to $200/year</div>
                     <div class="stock-warning">🔥 Real-Time Monitoring!</div>
-                    <a href="https://www.sense.com/affiliate-program" class="product-cta" target="_blank" rel="noopener">Shop Sense (12% Commission)</a>
+                    <a href="https://www.amazon.com/s?k=home+energy+monitor+smart+meter&ref=as_li_ss_tl" class="product-cta" target="_blank" rel="noopener">Shop Energy Monitors (8% Commission)</a>
                     <div class="alternative-links">
-                        <a href="https://www.emporiaenergy.com/affiliate-program" target="_blank" rel="noopener">Emporia (10% Commission)</a> | 
-                        <a href="https://www.neurio.com/affiliate-program" target="_blank" rel="noopener">Neurio (8% Commission)</a>
+                        <a href="https://www.sense.com/" target="_blank" rel="noopener">Sense (12% Commission)</a> | 
+                        <a href="https://www.emporiaenergy.com/" target="_blank" rel="noopener">Emporia (10% Commission)</a> | 
+                        <a href="https://www.neurio.com/" target="_blank" rel="noopener">Neurio (8% Commission)</a>
                     </div>
                 </div>
             </div>
