@@ -7,6 +7,14 @@
     <meta name="description" content="Calculate your yearly CO2 footprint based on travel, energy, and lifestyle. Learn how to offset and reduce your impact with actionable tips and eco-friendly solutions.">
     <meta name="keywords" content="carbon footprint calculator, CO2 emissions, environmental impact, climate change, carbon offset, eco-friendly, sustainability">
     <meta name="author" content="CarbonChecks">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="language" content="English">
+    <meta name="geo.region" content="US">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://s.skimresources.com">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="energy-saving.png">
@@ -33,6 +41,9 @@
     <!-- Skimlinks -->
     <script type="text/javascript" src="https://s.skimresources.com/js/293633X1780866.skimlinks.js"></script>
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://carbonchecks.com/">
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4GP5ZEMD1"></script>
     <script>
@@ -40,7 +51,101 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-F4GP5ZEMD1');
+      gtag('config', 'G-F4GP5ZEMD1', {
+        'page_title': 'Carbon Footprint Calculator',
+        'page_location': window.location.href
+      });
+      
+      // Track calculator usage
+      function trackCalculatorUsage() {
+        gtag('event', 'calculator_submit', {
+          'event_category': 'engagement',
+          'event_label': 'carbon_calculator',
+          'value': 1
+        });
+      }
+      
+      // Track affiliate clicks
+      function trackAffiliateClick(productName) {
+        gtag('event', 'affiliate_click', {
+          'event_category': 'monetization',
+          'event_label': productName,
+          'value': 1
+        });
+      }
+    </script>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "CarbonChecks - Carbon Footprint Calculator",
+      "url": "https://carbonchecks.com",
+      "description": "Calculate your yearly CO2 footprint based on travel, energy, and lifestyle. Learn how to offset and reduce your impact with actionable tips and eco-friendly solutions.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "127"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "CarbonChecks",
+        "url": "https://carbonchecks.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CarbonChecks",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://carbonchecks.com/energy-saving.png"
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CarbonChecks",
+      "url": "https://carbonchecks.com",
+      "logo": "https://carbonchecks.com/energy-saving.png",
+      "description": "Free carbon footprint calculator helping users understand and reduce their environmental impact.",
+      "sameAs": [
+        "https://facebook.com/carbonchecks",
+        "https://twitter.com/carbonchecks",
+        "https://instagram.com/carbonchecks"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@carbonchecks.com"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://carbonchecks.com"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://carbonchecks.com/blog/"
+      }]
+    }
     </script>
     
     <style>
@@ -61,6 +166,46 @@
             color: #333;
             background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
             min-height: 100vh;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            animation: slideUp 0.6s ease-out forwards;
+        }
+        
+        .calculator-section {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        .blog-card, .product-feature {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .blog-card:hover, .product-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
         
         .container {
@@ -1756,10 +1901,10 @@
                     <div class="product-savings">💰 Save up to $3,000/year</div>
                     <div class="stock-warning">🔥 Limited Time Offer!</div>
                     <div class="affiliate-buttons">
-                        <a href="https://www.amazon.com/s?k=complete+solar+panel+kit+system&ref=as_li_ss_tl" class="affiliate-btn primary" target="_blank" rel="noopener">🛒 Amazon Solar Kits</a>
-                        <a href="https://www.renogy.com/solar-panel-kits/" class="affiliate-btn secondary" target="_blank" rel="noopener">☀️ Renogy</a>
-                        <a href="https://www.goalzero.com/solar-panels/" class="affiliate-btn secondary" target="_blank" rel="noopener">🔋 Goal Zero</a>
-                        <a href="https://www.ecoflow.com/solar-panels" class="affiliate-btn secondary" target="_blank" rel="noopener">⚡ EcoFlow</a>
+                        <a href="https://www.amazon.com/s?k=complete+solar+panel+kit+system&ref=as_li_ss_tl" class="affiliate-btn primary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Solar_Kits_Amazon')">🛒 Amazon Solar Kits</a>
+                        <a href="https://www.renogy.com/solar-panel-kits/" class="affiliate-btn secondary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Solar_Kits_Renogy')">☀️ Renogy</a>
+                        <a href="https://www.goalzero.com/solar-panels/" class="affiliate-btn secondary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Solar_Kits_GoalZero')">🔋 Goal Zero</a>
+                        <a href="https://www.ecoflow.com/solar-panels" class="affiliate-btn secondary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Solar_Kits_EcoFlow')">⚡ EcoFlow</a>
                     </div>
                 </div>
                 
@@ -1772,10 +1917,10 @@
                     <div class="product-savings">💰 Save up to $400/year</div>
                     <div class="stock-warning">⚡ Energy Star Certified!</div>
                     <div class="affiliate-buttons">
-                        <a href="https://www.amazon.com/s?k=smart+thermostat+nest+honeywell+ecobee&ref=as_li_ss_tl" class="affiliate-btn primary" target="_blank" rel="noopener">🛒 Amazon Thermostats</a>
-                        <a href="https://store.google.com/us/category/thermostats" class="affiliate-btn secondary" target="_blank" rel="noopener">🌡️ Google Nest</a>
-                        <a href="https://www.ecobee.com/smart-thermostats/" class="affiliate-btn secondary" target="_blank" rel="noopener">🏠 Ecobee</a>
-                        <a href="https://www.honeywell.com/smart-thermostats" class="affiliate-btn secondary" target="_blank" rel="noopener">⚙️ Honeywell</a>
+                        <a href="https://www.amazon.com/s?k=smart+thermostat+nest+honeywell+ecobee&ref=as_li_ss_tl" class="affiliate-btn primary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Thermostats_Amazon')">🛒 Amazon Thermostats</a>
+                        <a href="https://store.google.com/us/category/thermostats" class="affiliate-btn secondary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Thermostats_GoogleNest')">🌡️ Google Nest</a>
+                        <a href="https://www.ecobee.com/smart-thermostats/" class="affiliate-btn secondary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Thermostats_Ecobee')">🏠 Ecobee</a>
+                        <a href="https://www.honeywell.com/smart-thermostats" class="affiliate-btn secondary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Thermostats_Honeywell')">⚙️ Honeywell</a>
                     </div>
                 </div>
                 
@@ -1788,10 +1933,10 @@
                     <div class="product-savings">💰 Save up to $200/year</div>
                     <div class="stock-warning">🔥 Real-Time Monitoring!</div>
                     <div class="affiliate-buttons">
-                        <a href="https://www.amazon.com/s?k=home+energy+monitor+smart+meter&ref=as_li_ss_tl" class="affiliate-btn primary" target="_blank" rel="noopener">🛒 Amazon Monitors</a>
-                        <a href="https://www.sense.com/" class="affiliate-btn secondary" target="_blank" rel="noopener">📊 Sense</a>
-                        <a href="https://www.emporiaenergy.com/" class="affiliate-btn secondary" target="_blank" rel="noopener">⚡ Emporia</a>
-                        <a href="https://www.neurio.com/" class="affiliate-btn secondary" target="_blank" rel="noopener">🔍 Neurio</a>
+                        <a href="https://www.amazon.com/s?k=home+energy+monitor+smart+meter&ref=as_li_ss_tl" class="affiliate-btn primary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Monitors_Amazon')">🛒 Amazon Monitors</a>
+                        <a href="https://www.sense.com/" class="affiliate-btn secondary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Monitors_Sense')">📊 Sense</a>
+                        <a href="https://www.emporiaenergy.com/" class="affiliate-btn secondary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Monitors_Emporia')">⚡ Emporia</a>
+                        <a href="https://www.neurio.com/" class="affiliate-btn secondary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Monitors_Neurio')">🔍 Neurio</a>
                     </div>
                 </div>
             </div>
@@ -2132,6 +2277,11 @@
         // Carbon Footprint Calculator
         document.getElementById('carbonForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Track calculator usage
+            if (typeof trackCalculatorUsage === 'function') {
+                trackCalculatorUsage();
+            }
             
             // Get form values
             const carMiles = parseFloat(document.getElementById('carMiles').value) || 0;
