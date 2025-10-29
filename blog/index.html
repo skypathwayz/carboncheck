@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarbonChecks Blog</title>
+    <meta name="description" content="Clear, practical, U.S.-focused guides to understand and reduce your carbon footprint.">
+    <meta name="keywords" content="carbon footprint blog, climate change articles, environmental guides, sustainability tips, carbon reduction">
+    <meta name="author" content="CarbonChecks">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../energy-saving.png">
+    <link rel="shortcut icon" type="image/png" href="../energy-saving.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://carbonchecks.com/blog/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="CarbonChecks Blog">
+    <meta property="og:description" content="Clear, practical, U.S.-focused guides to understand and reduce your carbon footprint.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://carbonchecks.com/blog/">
+    <meta property="og:site_name" content="CarbonChecks">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CarbonChecks Blog">
+    <meta name="twitter:description" content="Clear, practical, U.S.-focused guides to understand and reduce your carbon footprint.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: #2d5a27;
+            color: white;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #4CAF50;
+        }
+        
+        .breadcrumb {
+            background: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb a {
+            color: #2d5a27;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .page-title h1 {
+            font-size: 3rem;
+            color: #2d5a27;
+            margin-bottom: 1rem;
+        }
+        
+        .page-title p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-content h2 {
+            font-size: 1.5rem;
+            color: #2d5a27;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .blog-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        .blog-link {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .blog-link:hover {
+            background: #45a049;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../" class="logo">🌱 CarbonChecks</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="../#calculator">Calculator</a></li>
+                        <li><a href="../#blog">Articles</a></li>
+                        <li><a href="index.html">Blog</a></li>
+                        <li><a href="../about-us.html">About</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <a href="../">Home</a> → <a href="index.html">Blog</a>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="page-title">
+        <div class="container">
+            <h1>CarbonChecks Blog</h1>
+            <p>Clear, practical, U.S.-focused guides to understand and reduce your carbon footprint</p>
+        </div>
+    </div>
+
+    <!-- Blog Posts -->
+    <div class="container">
+        <div class="blog-grid">
+            <article class="blog-card">
+                <picture>
+                    <source srcset="../assets/driving-co2-per-mile.webp" type="image/webp">
+                    <img src="../assets/driving-co2-per-mile.jpg" alt="Car on an American highway at golden hour, long perspective" class="blog-image" width="400" height="200" loading="lazy" decoding="async">
+                </picture>
+                <div class="blog-content">
+                    <h2>How Much CO₂ Does Driving 1 Mile Produce? (Simple Breakdown)</h2>
+                    <p>Quick answer for U.S. drivers: ~0.66 lbs of CO₂ per mile in a typical gasoline car. Clear table + simple ways to cut it.</p>
+                    <a href="driving-co2-per-mile.html" class="blog-link">Read More</a>
+                </div>
+            </article>
+            
+            <article class="blog-card">
+                <picture>
+                    <source srcset="../assets/chicken-vs-beef-footprint.webp" type="image/webp">
+                    <img src="../assets/chicken-vs-beef-footprint.jpg" alt="Cooked chicken breast and steak on separate boards, overhead photo" class="blog-image" width="400" height="200" loading="lazy" decoding="async">
+                </picture>
+                <div class="blog-content">
+                    <h2>Chicken vs Beef — Which Has the Lower Carbon Footprint?</h2>
+                    <p>Beef's footprint can be ~10× higher than chicken per pound. Why it's bigger and how a simple swap drops your total fast.</p>
+                    <a href="chicken-vs-beef-footprint.html" class="blog-link">Read More</a>
+                </div>
+            </article>
+            
+            <article class="blog-card">
+                <picture>
+                    <source srcset="../assets/offset-carbon-cheap.webp" type="image/webp">
+                    <img src="../assets/offset-carbon-cheap.jpg" alt="U.S. home scene: refill bottle, thermostat at 68°F, single trip checklist" class="blog-image" width="400" height="200" loading="lazy" decoding="async">
+                </picture>
+                <div class="blog-content">
+                    <h2>The 7 Cheapest Ways to Offset Your Carbon Footprint (2025)</h2>
+                    <p>Small, low-effort switches that actually stick. U.S.-friendly tips with realistic dollar costs.</p>
+                    <a href="offset-carbon-cheap.html" class="blog-link">Read More</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</body>
+</html>
