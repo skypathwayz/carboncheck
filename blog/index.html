@@ -138,14 +138,24 @@
         .blog-image {
             width: 100%;
             height: 200px;
-            object-fit: cover;
-            background: linear-gradient(135deg, #2d5a27, #4CAF50);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
+            background: linear-gradient(135deg, #2d5a27, #4CAF50) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0;
+            padding: 0;
             border-radius: 8px 8px 0 0;
+            overflow: hidden;
+        }
+        
+        .blog-image span {
+            color: white !important;
+            font-size: 4rem;
+            text-align: center;
+            line-height: 1;
+            display: block;
+            margin: 0;
+            padding: 0;
         }
         
         .blog-content {
@@ -238,7 +248,7 @@
     <div class="container">
         <div class="blog-grid">
             <article class="blog-card">
-                <div class="blog-image">🚗</div>
+                <div class="blog-image"><span>🚗💨</span></div>
                 <div class="blog-content">
                     <h2>How Much CO₂ Does Driving 1 Mile Produce? (Simple Breakdown)</h2>
                     <p>🚨 <strong>Shocking Truth:</strong> Your daily commute is costing the planet more than you think! Discover the exact CO₂ impact of every mile you drive and learn simple tricks to cut it by 40%.</p>
@@ -247,7 +257,7 @@
             </article>
             
             <article class="blog-card">
-                <div class="blog-image">🍖</div>
+                <div class="blog-image"><span>🍖🥩</span></div>
                 <div class="blog-content">
                     <h2>Chicken vs Beef — Which Has the Lower Carbon Footprint?</h2>
                     <p>💥 <strong>Mind-Blowing Fact:</strong> One beef meal = 10 chicken meals in CO₂! Discover why your steak is literally killing the planet and how a simple protein swap can save 2.5 tons of CO₂ per year.</p>
@@ -256,11 +266,29 @@
             </article>
             
             <article class="blog-card">
-                <div class="blog-image">💰</div>
+                <div class="blog-image"><span>💰</span></div>
                 <div class="blog-content">
                     <h2>The 7 Cheapest Ways to Offset Your Carbon Footprint (2025)</h2>
                     <p>🎯 <strong>Save $3,000+ Per Year:</strong> These 7 simple swaps cost almost nothing but can slash your carbon footprint by 60% while putting money back in your pocket. The government doesn't want you to know these secrets!</p>
                     <a href="offset-carbon-cheap.html" class="blog-link">Read More</a>
+                </div>
+            </article>
+            
+            <article class="blog-card">
+                <div class="blog-image"><span>☀️</span></div>
+                <div class="blog-content">
+                    <h2>Are Solar Panels Worth It in 2025? Complete Cost-Benefit Analysis</h2>
+                    <p>💰 <strong>BREAKING: Solar panels can save you $20,000+ over 25 years!</strong> With federal tax credits at 30%, state incentives, and electricity costs rising 3-5% annually, 2025 might be the BEST year ever to go solar.</p>
+                    <a href="solar-panels-worth-it-2025.html" class="blog-link">Read More</a>
+                </div>
+            </article>
+            
+            <article class="blog-card">
+                <div class="blog-image"><span>🚗</span></div>
+                <div class="blog-content">
+                    <h2>Electric Cars vs Gas Cars 2025: Complete Cost Comparison</h2>
+                    <p>⚡ <strong>SHOCKING: Electric cars can save you $6,000+ per year!</strong> With gas prices soaring and EV technology advancing rapidly, 2025 might be the year to make the switch. Complete cost analysis included!</p>
+                    <a href="electric-cars-vs-gas-cars-2025.html" class="blog-link">Read More</a>
                 </div>
             </article>
         </div>
