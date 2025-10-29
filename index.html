@@ -929,6 +929,7 @@
             background: white;
             border-radius: 15px;
             padding: 2rem;
+            padding-top: 3rem; /* Add space for badges */
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             position: relative;
@@ -942,7 +943,7 @@
         
         .product-badge {
             position: absolute;
-            top: -10px;
+            top: 15px;
             right: 20px;
             background: #4CAF50;
             color: white;
@@ -1355,6 +1356,37 @@
             .affiliate-btn {
                 padding: 0.8rem 1rem;
                 font-size: 0.9rem;
+            }
+            
+            /* Fix product badges on mobile */
+            .product-feature {
+                position: relative;
+                padding-top: 60px; /* Add space for badges */
+            }
+            
+            .product-badge {
+                position: absolute;
+                top: 10px;
+                right: auto;
+                left: 10px;
+                margin: 2px;
+                font-size: 0.7rem;
+                padding: 0.3rem 0.6rem;
+                display: inline-block;
+                width: auto;
+            }
+            
+            .product-badge:first-of-type {
+                left: 10px;
+            }
+            
+            .product-badge:last-of-type {
+                left: 80px;
+            }
+            
+            .product-feature h3 {
+                margin-top: 10px;
+                clear: both;
             }
         }
         
@@ -1887,7 +1919,7 @@
 
     <!-- Featured Products Section -->
     <section class="featured-products">
-        <div class="container">
+    <div class="container">
             <h2>🔥 Trending Now: Top Energy-Saving Products</h2>
             <p class="section-subtitle">Join thousands of users saving money while reducing their carbon footprint</p>
             
@@ -1902,11 +1934,11 @@
                     <div class="stock-warning">🔥 Limited Time Offer!</div>
                     <div class="affiliate-buttons">
                         <a href="https://www.amazon.com/s?k=complete+solar+panel+kit+system&ref=as_li_ss_tl" class="affiliate-btn primary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Solar_Kits_Amazon')">🛒 Amazon Solar Kits</a>
-e                        <a href="https://www.renogy.com/solar-panels/" class="affiliate-btn secondary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Solar_Kits_Renogy')">☀️ Renogy</a>
+                        <a href="https://www.renogy.com/solar-panels/" class="affiliate-btn secondary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Solar_Kits_Renogy')">☀️ Renogy</a>
                         <a href="https://www.ecoflow.com/us/solar-panels" class="affiliate-btn secondary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Solar_Kits_EcoFlow')">⚡ EcoFlow</a>
                         <a href="https://www.jackery.com/collections/solar-panels" class="affiliate-btn secondary" target="_blank" rel="noopener" onclick="if(typeof trackAffiliateClick==='function')trackAffiliateClick('Solar_Kits_Jackery')">🔋 Jackery</a>
-                    </div>
-                </div>
+        </div>
+    </div>
                 
                 <div class="product-feature">
                     <div class="product-badge popular">POPULAR</div>
