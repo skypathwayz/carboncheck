@@ -2,74 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://carbonchecks.com/</loc>
-        <lastmod>2024-12-28</lastmod>
+        <lastmod>2024-10-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://carbonchecks.com/about-us.html</loc>
-        <lastmod>2024-12-28</lastmod>
-        <changefreq>monthly</changefreq>
+        <loc>https://carbonchecks.com/blog/</loc>
+        <lastmod>2024-10-29</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://carbonchecks.com/contact.html</loc>
-        <lastmod>2024-12-28</lastmod>
+        <loc>https://carbonchecks.com/blog/driving-co2-per-mile</loc>
+        <lastmod>2024-10-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://carbonchecks.com/faq.html</loc>
-        <lastmod>2024-12-28</lastmod>
+        <loc>https://carbonchecks.com/blog/chicken-vs-beef-footprint</loc>
+        <lastmod>2024-10-29</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://carbonchecks.com/privacy-policy.html</loc>
-        <lastmod>2024-12-28</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
-    <url>
-        <loc>https://carbonchecks.com/terms-of-service.html</loc>
-        <lastmod>2024-12-28</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
-    <url>
-        <loc>https://carbonchecks.com/article-1-reduce-footprint.html</loc>
-        <lastmod>2024-12-28</lastmod>
+        <loc>https://carbonchecks.com/blog/offset-carbon-cheap</loc>
+        <lastmod>2024-10-29</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://carbonchecks.com/article-2-carbon-offsetting.html</loc>
-        <lastmod>2024-12-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://carbonchecks.com/article-3-smart-home.html</loc>
-        <lastmod>2024-12-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://carbonchecks.com/article-4-hidden-costs.html</loc>
-        <lastmod>2024-12-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://carbonchecks.com/article-5-electric-vehicles.html</loc>
-        <lastmod>2024-12-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://carbonchecks.com/article-6-sustainable-fashion.html</loc>
-        <lastmod>2024-12-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
 </urlset>
