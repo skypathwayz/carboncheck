@@ -62,3 +62,4 @@ SEO FILES (2 files):
 🌱 READY TO GO LIVE!
 ===================
 Your carbon footprint calculator website is complete and ready to generate revenue!
+
