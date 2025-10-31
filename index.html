@@ -802,6 +802,96 @@
             font-size: 0.9rem;
         }
         
+        /* Action Steps Container */
+        .action-steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .action-step-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .action-step-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FFD700;
+            color: #2d5a27;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            margin: 1.5rem 0 1rem;
+            display: block;
+        }
+        
+        .action-step-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: white;
+        }
+        
+        .action-step-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        .step-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .step-button:hover {
+            background: white;
+            color: #4CAF50;
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .action-steps-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .action-step-card {
+                padding: 1.5rem 1rem;
+            }
+        }
+        
         /* Footer */
         footer {
             background: #2d5a27;
@@ -953,11 +1043,46 @@
             background: white;
             border-radius: 15px;
             padding: 2rem;
-            padding-top: 3rem; /* Add space for badges */
+            padding-top: 4rem; /* Add space for badges */
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .estimate-btn {
+            margin-top: 0.5rem;
+            padding: 0.6rem 1rem;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+        
+        .estimate-btn:hover {
+            background: #45a049;
+        }
+        
+        .estimate-calculate-btn {
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background: #2d5a27;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+        
+        .estimate-calculate-btn:hover {
+            background: #1a3d16;
         }
         
         .product-feature:hover {
@@ -967,48 +1092,75 @@
         
         .product-badge {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 10px;
+            left: 10px;
             background: #4CAF50;
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
             font-weight: 600;
             z-index: 2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            white-space: nowrap;
         }
         
         .product-badge.bestseller {
             background: #FF6B35;
-            right: 20px;
+            top: 10px;
         }
         
         .product-badge.limited-time {
             background: #E91E63;
-            right: 140px;
+            top: 45px;
             animation: pulse 2s infinite;
         }
         
         .product-badge.popular {
             background: #2196F3;
-            right: 20px;
+            top: 10px;
         }
         
         .product-badge.sale {
             background: #FF5722;
-            right: 100px;
+            top: 45px;
             animation: pulse 2s infinite;
         }
         
         .product-badge.new {
             background: #9C27B0;
-            right: 20px;
+            top: 10px;
         }
         
         .product-badge.hot {
             background: #F44336;
-            right: 60px;
+            top: 45px;
             animation: pulse 1.5s infinite;
+        }
+        
+        .product-feature h3 {
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .product-badge {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.6rem;
+            }
+            .product-badge.limited-time,
+            .product-badge.sale,
+            .product-badge.hot {
+                top: 40px;
+            }
+            .product-feature {
+                padding-top: 3.5rem;
+            }
+            .product-feature h3 {
+                font-size: 1.3rem;
+                margin-top: 0.5rem;
+                line-height: 1.3;
+            }
         }
         
         .original-price {
@@ -1966,7 +2118,7 @@
     </section>
 
     <!-- Featured Products Section -->
-    <section class="featured-products">
+    <section id="products" class="featured-products">
     <div class="container">
             <h2>🔥 Trending Now: Top Energy-Saving Products</h2>
             <p class="section-subtitle">Join thousands of users saving money while reducing their carbon footprint</p>
@@ -2112,6 +2264,40 @@
                 <div class="form-group">
                     <label for="electricity">Monthly Electricity Usage (kWh)</label>
                     <input type="number" id="electricity" name="electricity" placeholder="e.g., 800" min="0" required>
+                    <button type="button" id="electricityEstimateBtn" class="estimate-btn" onclick="showElectricityEstimator()">💡 Don't know? Get Estimate</button>
+                    <div id="electricityEstimator" style="display: none; margin-top: 1rem; padding: 1.5rem; background: #f8f9fa; border-radius: 10px;">
+                        <h4 style="margin-bottom: 1rem; color: #2d5a27;">Estimate Your Electricity Usage</h4>
+                        <div class="form-group">
+                            <label for="numRooms">Number of Bedrooms:</label>
+                            <select id="numRooms" style="width: 100%; padding: 0.75rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+                                <option value="">Select bedrooms</option>
+                                <option value="1">1 bedroom (Studio/1BR)</option>
+                                <option value="2">2 bedrooms</option>
+                                <option value="3">3 bedrooms</option>
+                                <option value="4">4 bedrooms</option>
+                                <option value="5">5+ bedrooms</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
+                                <input type="checkbox" id="hasEVCharger" style="width: auto;">
+                                <span>I have an electric car charger</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="acUsage" style="margin-top: 1rem;">Air Conditioning Usage:</label>
+                            <select id="acUsage" style="width: 100%; padding: 0.75rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+                                <option value="none">No AC / Rarely use</option>
+                                <option value="moderate">Moderate (summer months)</option>
+                                <option value="heavy">Heavy (year-round)</option>
+                            </select>
+                        </div>
+                        <button type="button" class="estimate-calculate-btn" onclick="calculateElectricityEstimate()">Calculate Estimate</button>
+                        <div id="estimateResult" style="margin-top: 1rem; padding: 1rem; background: #4CAF50; color: white; border-radius: 5px; display: none;">
+                            <strong>Estimated Usage: <span id="estimatedKwh"></span> kWh/month</strong>
+                            <button type="button" onclick="applyEstimate()" style="margin-top: 0.5rem; padding: 0.5rem 1rem; background: white; color: #4CAF50; border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">Use This Estimate</button>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="form-group">
@@ -2159,14 +2345,42 @@
             <p class="affiliate-description">Ready to make a real difference? Follow these 5 simple steps to start reducing your carbon footprint today:</p>
             <p id="countryIndicator" style="text-align: center; color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-top: -1rem; margin-bottom: 1rem;">Showing products matched to your location</p>
             
-            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; margin: 2rem 0; backdrop-filter: blur(10px);">
-                <ol style="text-align: left; max-width: 600px; margin: 0 auto; color: white; font-size: 1.1rem; line-height: 2;">
-                    <li style="margin-bottom: 1rem;"><strong>Calculate Your Footprint</strong> - <a href="#calculator" style="color: #FFD700; text-decoration: underline;">Use our free calculator</a> to see your current impact</li>
-                    <li style="margin-bottom: 1rem;"><strong>Read Our Guides</strong> - <a href="blog/" style="color: #FFD700; text-decoration: underline;">Explore actionable tips</a> tailored to your lifestyle</li>
-                    <li style="margin-bottom: 1rem;"><strong>Start Small</strong> - Pick one change from our <a href="blog/offset-carbon-cheap.html" style="color: #FFD700; text-decoration: underline;">cheap offsetting guide</a></li>
-                    <li style="margin-bottom: 1rem;"><strong>Explore Products</strong> - Check trusted solutions below matched to your location</li>
-                    <li style="margin-bottom: 1rem;"><strong>Track Progress</strong> - Recalculate monthly to see your improvement</li>
-                </ol>
+            <div class="action-steps-container">
+                <div class="action-step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">📊</div>
+                    <h3>Calculate Your Impact</h3>
+                    <p>Discover your carbon footprint in 60 seconds</p>
+                    <a href="#calculator" class="step-button">Start Calculating →</a>
+                </div>
+                <div class="action-step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">📚</div>
+                    <h3>Get Expert Insights</h3>
+                    <p>Access guides tailored to your lifestyle</p>
+                    <a href="blog/" class="step-button">Read Guides →</a>
+                </div>
+                <div class="action-step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">💡</div>
+                    <h3>Take Smart Actions</h3>
+                    <p>Simple changes that save money & the planet</p>
+                    <a href="blog/offset-carbon-cheap.html" class="step-button">See Tips →</a>
+                </div>
+                <div class="action-step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">🛒</div>
+                    <h3>Explore Solutions</h3>
+                    <p>Trusted products matched to your location</p>
+                    <a href="#products" class="step-button">Shop Now →</a>
+                </div>
+                <div class="action-step-card">
+                    <div class="step-number">5</div>
+                    <div class="step-icon">📈</div>
+                    <h3>Track Your Progress</h3>
+                    <p>Recalculate monthly and watch your impact shrink</p>
+                    <a href="#calculator" class="step-button">Recalculate →</a>
+                </div>
             </div>
             
             <div class="affiliate-links" id="affiliateLinks">
@@ -2738,7 +2952,96 @@
       
       // Run geo-targeting on page load
       detectCountryAndUpdateLinks();
+      
+      // Newsletter form with welcome message
+      const newsletterForm = document.querySelector('.newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const email = this.querySelector('input[type="email"]')?.value;
+          if (email) {
+            // Show welcome message
+            showWelcomeMessage(email);
+            this.reset();
+          }
+        });
+      }
+      
+      function showWelcomeMessage(email) {
+        const message = document.createElement('div');
+        message.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #4CAF50; color: white; padding: 1.5rem 2rem; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); z-index: 10000; max-width: 400px;';
+        message.innerHTML = `
+          <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem;">🎉 Welcome to CarbonChecks!</h3>
+          <p style="margin: 0 0 1rem 0;">Thanks for signing up, ${email.split('@')[0]}! Check your inbox for exclusive tips and guides to reduce your carbon footprint.</p>
+          <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">We'll send you weekly actionable insights and product recommendations.</p>
+        `;
+        document.body.appendChild(message);
+        setTimeout(() => {
+          message.style.transition = 'opacity 0.3s ease';
+          message.style.opacity = '0';
+          setTimeout(() => message.remove(), 300);
+        }, 5000);
+      }
     });
+    
+    // Electricity Usage Estimator Functions
+    function showElectricityEstimator() {
+      const estimator = document.getElementById('electricityEstimator');
+      const btn = document.getElementById('electricityEstimateBtn');
+      if (estimator.style.display === 'none') {
+        estimator.style.display = 'block';
+        btn.textContent = 'Close Estimator';
+        btn.style.background = '#f44336';
+      } else {
+        estimator.style.display = 'none';
+        btn.textContent = '💡 Don\'t know? Get Estimate';
+        btn.style.background = '#4CAF50';
+      }
+    }
+    
+    function calculateElectricityEstimate() {
+      const numRooms = parseInt(document.getElementById('numRooms').value) || 0;
+      const hasEVCharger = document.getElementById('hasEVCharger').checked;
+      const acUsage = document.getElementById('acUsage').value;
+      
+      if (!numRooms) {
+        alert('Please select the number of bedrooms');
+        return;
+      }
+      
+      // Base usage by number of bedrooms
+      let baseUsage = 0;
+      if (numRooms === 1) baseUsage = 400;
+      else if (numRooms === 2) baseUsage = 700;
+      else if (numRooms === 3) baseUsage = 1000;
+      else if (numRooms === 4) baseUsage = 1300;
+      else baseUsage = 1600;
+      
+      // Add EV charger usage (average 300-500 kWh/month)
+      if (hasEVCharger) {
+        baseUsage += 400;
+      }
+      
+      // Add AC usage
+      if (acUsage === 'moderate') {
+        baseUsage += 200;
+      } else if (acUsage === 'heavy') {
+        baseUsage += 500;
+      }
+      
+      // Show result
+      document.getElementById('estimatedKwh').textContent = baseUsage.toLocaleString();
+      document.getElementById('estimateResult').style.display = 'block';
+    }
+    
+    function applyEstimate() {
+      const estimated = document.getElementById('estimatedKwh').textContent.replace(/,/g, '');
+      document.getElementById('electricity').value = estimated;
+      document.getElementById('electricityEstimator').style.display = 'none';
+      document.getElementById('electricityEstimateBtn').textContent = '💡 Don\'t know? Get Estimate';
+      document.getElementById('electricityEstimateBtn').style.background = '#4CAF50';
+      document.getElementById('estimateResult').style.display = 'none';
+    }
     </script>
         <script>
           function googleTranslateElementInit() {
