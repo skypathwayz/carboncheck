@@ -104,23 +104,44 @@
         }
         
         .header {
-            background: #2d5a27;
-            color: white;
+            background: rgba(255, 255, 255, 0.85);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            color: #333;
             padding: 1rem 0;
             margin-bottom: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: box-shadow 0.3s ease, background 0.3s ease;
         }
         
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #2d5a27, #4CAF50, #2196F3, #00BCD4);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
-            color: white;
+            animation: logoGlow 3s ease-in-out infinite;
+            position: relative;
+        }
+        
+        @keyframes logoGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         
         .nav-links {
@@ -130,9 +151,10 @@
         }
         
         .nav-links a {
-            color: white;
+            color: #2d5a27;
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 600;
         }
         
         .nav-links a:hover {
