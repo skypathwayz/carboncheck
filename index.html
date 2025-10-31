@@ -168,6 +168,13 @@
             min-height: 100vh;
             animation: fadeIn 0.5s ease-in;
         }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
         
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -217,14 +224,18 @@
         
         /* Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            -webkit-backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.85);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: box-shadow 0.3s ease, background 0.3s ease;
+        }
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
         }
         
         .header-content {
@@ -450,25 +461,29 @@
             }
         }
         
-        .cta-button {
-            display: block;
-            background: #4CAF50;
+        .cta-button, .calculate-btn, .blog-link, .affiliate-btn.primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
             color: white;
             padding: 1rem 2rem;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.25s cubic-bezier(.48,.22,.34,1.16), box-shadow 0.25s ease;
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
             text-align: center;
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
         }
         
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        .cta-button:hover, .calculate-btn:hover, .blog-link:hover, .affiliate-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+        }
+        
+        .cta-button:active, .calculate-btn:active, .blog-link:active {
+            transform: translateY(-1px) scale(0.98);
         }
         
         /* Calculator Section */
@@ -523,8 +538,14 @@
         
         .form-group input:focus,
         .form-group select:focus {
-            outline: none;
+            outline: 2px solid #4CAF50;
+            outline-offset: 2px;
             border-color: #4CAF50;
+        }
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
         }
         
         .calculate-btn {
@@ -692,6 +713,9 @@
             justify-content: center;
             color: white;
             font-size: 3rem;
+        }
+        .blog-image span {
+            display: block;
         }
         
         .blog-content {
@@ -1849,6 +1873,16 @@
         .btn:active, .cta-button:active, button:active, .blog-link:active { transform: scale(0.97); }
         .blog-card, .product-feature { transition: box-shadow .45s cubic-bezier(.5,.1,.37,1.29), transform .28s cubic-bezier(.49,.22,.37,1.18); }
         .blog-card:hover, .product-feature:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 8px 32px rgba(45,90,39,0.12); }
+        .goog-te-gadget-simple {
+            background: rgba(255,255,255,0.9);
+            border-radius: 8px;
+            border: 1px solid #e1e5e9;
+            padding: 4px 8px;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            #google_translate_container { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -1867,6 +1901,9 @@
                     </ul>
                     <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
                 </nav>
+                <div id="google_translate_container" style="margin-left: 1rem;">
+                    <div id="google_translate_element"></div>
+                </div>
                 <div class="mobile-menu" id="mobileMenu">
                     <a href="#calculator">Calculator</a>
                     <a href="#blog">Articles</a>
@@ -1881,8 +1918,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Discover Your Carbon Footprint</h1>
-            <p>Take control of your environmental impact with our comprehensive carbon footprint calculator. Get personalized insights and actionable steps to reduce your emissions today.</p>
+            <h1>Slash Your Carbon Footprint. Save $2,000+ Per Year.</h1>
+            <p>Discover your impact in 60 seconds. Get personalized, actionable steps that save money while protecting the planet.</p>
             
             <div class="hero-facts">
                 <div class="fact-item">
@@ -1905,7 +1942,7 @@
                 </div>
             </div>
             
-            <a href="#calculator" class="cta-button">Calculate Now - Join 50,000+ Users!</a>
+            <a href="#calculator" class="cta-button">Calculate My Carbon Footprint →</a>
             
             <div class="trust-badges">
                 <div class="trust-badge">
@@ -2089,7 +2126,7 @@
                     </select>
                 </div>
                 
-                <button type="submit" class="calculate-btn">Calculate My Carbon Footprint</button>
+                <button type="submit" class="calculate-btn">Calculate My Footprint →</button>
             </form>
             
             <div class="results" id="results">
@@ -2106,6 +2143,10 @@
                         <li>Use public transportation or carpool</li>
                         <li>Invest in energy-efficient appliances</li>
                     </ul>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="#calculator" class="cta-button">Calculate Another Footprint</a>
+                        <a href="blog/" class="cta-button" style="margin-left: 1rem; background: linear-gradient(135deg, #2196F3, #1976D2);">Explore More Tips →</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2179,7 +2220,7 @@
             
             <div class="blog-grid">
                 <article class="blog-card">
-                    <div class="blog-image"><span>🚗💨</span></div>
+                    <div class="blog-image" aria-label="Driving emissions"><span>🚗💨</span></div>
                     <div class="blog-content">
                         <h3>How Much CO₂ Does Driving 1 Mile Produce? (Simple Breakdown)</h3>
                         <p>🚨 <strong>Shocking Truth:</strong> Your daily commute is costing the planet more than you think! Discover the exact CO₂ impact of every mile you drive and learn simple tricks to cut it by 40%.</p>
@@ -2188,7 +2229,7 @@
                 </article>
                 
                 <article class="blog-card">
-                    <div class="blog-image"><span>🍖🥩</span></div>
+                    <div class="blog-image" aria-label="Meat carbon footprint comparison"><span>🍖🥩</span></div>
                     <div class="blog-content">
                         <h3>Chicken vs Beef — Which Has the Lower Carbon Footprint?</h3>
                         <p>💥 <strong>Mind-Blowing Fact:</strong> One beef meal equals 10 chicken meals in CO₂ emissions! Discover why your steak is literally killing the planet and how a simple swap can save the world.</p>
@@ -2197,7 +2238,7 @@
                 </article>
                 
                 <article class="blog-card">
-                    <div class="blog-image"><span>💰</span></div>
+                    <div class="blog-image" aria-label="Cost-effective carbon offsetting"><span>💰</span></div>
                     <div class="blog-content">
                         <h3>The 7 Cheapest Ways to Offset Your Carbon Footprint (2025)</h3>
                         <p>🎯 <strong>Save $3,000+ Per Year:</strong> These 7 simple swaps cost almost nothing but can slash your carbon footprint by 60% while putting money back in your pocket!</p>
@@ -2206,7 +2247,7 @@
                 </article>
                 
                 <article class="blog-card">
-                    <div class="blog-image"><span>☀️</span></div>
+                    <div class="blog-image" aria-label="Solar panel investment analysis"><span>☀️</span></div>
                     <div class="blog-content">
                         <h3>Are Solar Panels Worth It in 2025? Complete Cost-Benefit Analysis</h3>
                         <p>💰 <strong>Breaking:</strong> Solar panels can save you $20,000+ over 25 years! With federal tax credits at 30% and rising electricity costs, 2025 might be the BEST year to go solar.</p>
@@ -2215,7 +2256,7 @@
                 </article>
                 
                 <article class="blog-card">
-                    <div class="blog-image"><span>🚗⚡</span></div>
+                    <div class="blog-image" aria-label="Electric vs gas vehicles comparison"><span>🚗⚡</span></div>
                     <div class="blog-content">
                         <h3>Electric Cars vs Gas Cars 2025: Complete Cost Comparison</h3>
                         <p>⚡ <strong>Shocking:</strong> Electric cars can save you $6,000+ per year! With gas prices soaring and EV technology advancing, 2025 might be the year to make the switch.</p>
@@ -2224,13 +2265,16 @@
                 </article>
                 
                 <article class="blog-card">
-                    <div class="blog-image"><span>📊</span></div>
+                    <div class="blog-image" aria-label="Carbon footprint guides"><span>📊</span></div>
                     <div class="blog-content">
                         <h3>More Carbon Footprint Guides & Tips</h3>
                         <p>Explore our complete collection of carbon footprint guides, calculators, and sustainable living tips to reduce your environmental impact.</p>
                         <a href="blog/" class="blog-link">View All Articles</a>
                     </div>
                 </article>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#calculator" class="cta-button">Start Your Carbon Journey →</a>
             </div>
         </div>
     </section>
@@ -2558,23 +2602,44 @@
             });
             
         </script>
+    <script>
+    // Section reveal on scroll
+    document.addEventListener('DOMContentLoaded',function(){
+      let revealEls = document.querySelectorAll('.animate-fadeInUp, .animate-popIn');
+      let observer = new window.IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('revealed');
+            entry.target.style.animation = entry.target.classList.contains('animate-popIn')
+              ? 'popIn .6s cubic-bezier(.39,.67,.28,1.53) forwards'
+              : 'fadeInUp .75s cubic-bezier(.48,.22,.34,1.16) forwards';
+            observer.unobserve(entry.target);
+          }
+        })
+      },{ threshold:.35 });
+      revealEls.forEach(el=>observer.observe(el));
+      
+      // Sticky nav scroll effect
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    });
+    </script>
         <script>
-        // Section reveal on scroll
-        document.addEventListener('DOMContentLoaded',function(){
-          let revealEls = document.querySelectorAll('.animate-fadeInUp, .animate-popIn');
-          let observer = new window.IntersectionObserver((entries)=>{
-            entries.forEach(entry=>{
-              if(entry.isIntersecting){
-                entry.target.classList.add('revealed');
-                entry.target.style.animation = entry.target.classList.contains('animate-popIn')
-                  ? 'popIn .6s cubic-bezier(.39,.67,.28,1.53) forwards'
-                  : 'fadeInUp .75s cubic-bezier(.48,.22,.34,1.16) forwards';
-                observer.unobserve(entry.target);
-              }
-            })
-          },{ threshold:.35 });
-          revealEls.forEach(el=>observer.observe(el));
-        });
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'en',
+              includedLanguages: 'es,fr,de,it,pt,ar,hi,zh-CN,ja,ko',
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+              autoDisplay: false
+            }, 'google_translate_element');
+          }
         </script>
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
