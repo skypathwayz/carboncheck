@@ -38,8 +38,8 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5918874419248577" crossorigin="anonymous"></script>
     
-    <!-- Skimlinks -->
-    <script type="text/javascript" src="https://s.skimresources.com/js/293633X1780866.skimlinks.js"></script>
+    <!-- Skimlinks REMOVED - Application rejected -->
+    <!-- Using Amazon Associates (skypathwayz-21) instead -->
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://carbonchecks.com/">
@@ -73,6 +73,44 @@
           'value': 1
         });
       }
+    </script>
+    
+    <!-- Amazon Associates Auto-Tagging -->
+    <script>
+      (function() {
+        const affiliateTag = 'skypathwayz-21';
+        function addAmazonTag() {
+          const amazonLinks = document.querySelectorAll('a[href*="amazon.com"], a[href*="amazon.co.uk"], a[href*="amazon.ca"], a[href*="amazon.com.au"], a[href*="amazon.de"]');
+          amazonLinks.forEach(link => {
+            try {
+              const url = new URL(link.href);
+              if (!url.searchParams.has('tag')) {
+                url.searchParams.set('tag', affiliateTag);
+                link.href = url.toString();
+                // Remove any existing Skimlinks tracking
+                link.href = link.href.replace(/&?tag=.*?(?=&|$)/, '');
+                const separator = link.href.includes('?') ? '&' : '?';
+                link.href += separator + 'tag=' + affiliateTag;
+              }
+            } catch(e) {
+              // Fallback for malformed URLs
+              if (!link.href.includes('tag=')) {
+                const separator = link.href.includes('?') ? '&' : '?';
+                link.href += separator + 'tag=' + affiliateTag;
+              }
+            }
+          });
+        }
+        // Run on page load
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', addAmazonTag);
+        } else {
+          addAmazonTag();
+        }
+        // Run on dynamic content changes
+        const observer = new MutationObserver(addAmazonTag);
+        observer.observe(document.body, { childList: true, subtree: true });
+      })();
     </script>
     
     <!-- JSON-LD Structured Data -->
