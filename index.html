@@ -655,6 +655,129 @@
             border-bottom: none;
         }
         
+        .tips-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Actionable Tips Grid */
+        .actionable-tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .actionable-tip-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .actionable-tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(45, 90, 39, 0.15);
+            border-color: #4CAF50;
+        }
+        
+        .actionable-tip-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(135deg, #2d5a27, #4CAF50);
+        }
+        
+        .tip-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tip-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .tip-content h4 {
+            margin: 0 0 0.5rem 0;
+            color: #2d5a27;
+            font-size: 1.2rem;
+        }
+        
+        .tip-content p {
+            margin: 0;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .tip-benefits {
+            background: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #2d5a27;
+        }
+        
+        .tip-benefits strong {
+            color: #4CAF50;
+        }
+        
+        .tip-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tip-action-btn {
+            padding: 0.8rem 1.2rem;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        
+        .tip-action-btn:hover {
+            background: linear-gradient(135deg, #45a049, #2d5a27);
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+        
+        .tip-action-btn.secondary {
+            background: white;
+            color: #4CAF50;
+            border: 2px solid #4CAF50;
+        }
+        
+        .tip-action-btn.secondary:hover {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .actionable-tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         /* Ad Slot */
         .ad-slot {
             background: #f8f9fa;
@@ -2322,14 +2445,12 @@
                 <div class="result-description" id="resultDescription">tonnes CO2 per year</div>
                 
                 <div class="tips-section">
-                    <h3 class="tips-title">💡 Ways to Reduce Your Impact</h3>
-                    <ul class="tips-list" id="tipsList">
-                        <li>Switch to renewable energy sources</li>
-                        <li>Reduce meat consumption</li>
-                        <li>Use public transportation or carpool</li>
-                        <li>Invest in energy-efficient appliances</li>
-                    </ul>
-                    <div style="text-align: center; margin-top: 2rem;">
+                    <h3 class="tips-title">🚀 Take Action Now - Start Reducing Your Impact Today</h3>
+                    <p class="tips-subtitle" style="text-align: center; color: #666; margin-bottom: 2rem; font-size: 1.1rem;">Based on your results, here are the most impactful changes you can make right now:</p>
+                    <div class="actionable-tips-grid" id="tipsList">
+                        <!-- Tips will be dynamically generated with product recommendations -->
+                    </div>
+                    <div style="text-align: center; margin-top: 3rem;">
                         <a href="#calculator" class="cta-button">Calculate Another Footprint</a>
                         <a href="blog/" class="cta-button" style="margin-left: 1rem; background: linear-gradient(135deg, #2196F3, #1976D2);">Explore More Tips →</a>
                     </div>
@@ -2684,19 +2805,263 @@
             number.className = `result-number ${impactClass}`;
             description.textContent = 'tonnes CO2 per year';
             
-            // Update tips
+            // Update tips with actionable cards and product recommendations
             tipsList.innerHTML = '';
-            tips.forEach(tip => {
-                const li = document.createElement('li');
-                li.textContent = tip;
-                tipsList.appendChild(li);
+            const tipProducts = getTipProductRecommendations(tips, co2);
+            
+            tipProducts.forEach((tipData, index) => {
+                const card = createActionableTipCard(tipData, index);
+                tipsList.appendChild(card);
             });
+            
+            // Apply geo-targeting to tip card affiliate links
+            setTimeout(() => {
+                const tipLinks = document.querySelectorAll('.actionable-tip-card .tip-action-btn[data-link-type]');
+                tipLinks.forEach(link => {
+                    const linkType = link.getAttribute('data-link-type');
+                    const country = window.detectedCountry || 'us';
+                    const countryLink = link.getAttribute(`data-${country}`);
+                    if (countryLink) {
+                        link.href = countryLink;
+                    }
+                });
+            }, 500);
             
             // Show results
             resultsDiv.classList.add('show');
             
             // Scroll to results
             resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        // Product recommendations mapped to tips
+        function getTipProductRecommendations(tips, co2) {
+            const productMap = {
+                'renewable energy': {
+                    icon: '☀️',
+                    title: 'Switch to Renewable Energy',
+                    description: 'Solar panels can reduce your electricity emissions by 100% while saving thousands annually.',
+                    benefits: 'Save $1,500-3,000/year • Reduce emissions by 2-4 tons CO₂',
+                    primaryAction: {
+                        text: 'Shop Solar Panels →',
+                        url: 'https://www.amazon.com/s?k=solar+panel+kits&ref=as_li_ss_tl',
+                        dataAttributes: 'data-link-type="solar" data-us="https://www.amazon.com/s?k=solar+panel+kits&ref=as_li_ss_tl" data-uk="https://www.amazon.co.uk/s?k=solar+panel+kits&ref=as_li_ss_tl" data-ca="https://www.amazon.ca/s?k=solar+panel+kits&ref=as_li_ss_tl"'
+                    },
+                    secondaryAction: {
+                        text: 'Read Solar Guide',
+                        url: 'blog/solar-panels-worth-it-2025.html'
+                    }
+                },
+                'smart thermostat': {
+                    icon: '🌡️',
+                    title: 'Install a Smart Thermostat',
+                    description: 'Automatically reduce heating/cooling costs by 23% while cutting your carbon footprint.',
+                    benefits: 'Save $200-400/year • Reduce emissions by 1.2 tons CO₂',
+                    primaryAction: {
+                        text: 'Shop Smart Thermostats →',
+                        url: 'https://www.amazon.com/s?k=smart+thermostat+nest&ref=as_li_ss_tl',
+                        dataAttributes: 'data-link-type="thermostat" data-us="https://www.amazon.com/s?k=smart+thermostat+nest&ref=as_li_ss_tl" data-uk="https://www.amazon.co.uk/s?k=smart+thermostat+nest&ref=as_li_ss_tl" data-ca="https://www.amazon.ca/s?k=smart+thermostat+nest&ref=as_li_ss_tl"'
+                    },
+                    secondaryAction: {
+                        text: 'Learn More',
+                        url: '#products'
+                    }
+                },
+                'energy-efficient': {
+                    icon: '💡',
+                    title: 'Upgrade to Energy-Efficient Appliances',
+                    description: 'LED bulbs and Energy Star appliances use 75% less energy and last 25x longer.',
+                    benefits: 'Save $300-500/year • Reduce emissions by 0.8 tons CO₂',
+                    primaryAction: {
+                        text: 'Shop Energy-Efficient Products →',
+                        url: 'https://www.amazon.com/s?k=led+light+bulbs+energy+star&ref=as_li_ss_tl',
+                        dataAttributes: 'data-link-type="led" data-us="https://www.amazon.com/s?k=led+light+bulbs+energy+star&ref=as_li_ss_tl" data-uk="https://www.amazon.co.uk/s?k=led+light+bulbs&ref=as_li_ss_tl" data-ca="https://www.amazon.ca/s?k=led+light+bulbs&ref=as_li_ss_tl"'
+                    },
+                    secondaryAction: {
+                        text: 'See All Products',
+                        url: '#products'
+                    }
+                },
+                'meat consumption': {
+                    icon: '🌱',
+                    title: 'Reduce Meat Consumption',
+                    description: 'Switching to plant-based meals 2-3 times per week can save 1.5 tons CO₂ annually.',
+                    benefits: 'Save $200-400/year • Reduce emissions by 1.5 tons CO₂',
+                    primaryAction: {
+                        text: 'Read Plant-Based Guide →',
+                        url: 'blog/chicken-vs-beef-footprint.html'
+                    },
+                    secondaryAction: {
+                        text: 'Get Recipe Ideas',
+                        url: 'blog/plant-based-diet-carbon-footprint.html'
+                    }
+                },
+                'public transportation': {
+                    icon: '🚌',
+                    title: 'Use Public Transportation More',
+                    description: 'Reduce car trips and cut your transport emissions by 40-60% while saving on gas.',
+                    benefits: 'Save $1,000-2,000/year • Reduce emissions by 2-3 tons CO₂',
+                    primaryAction: {
+                        text: 'Calculate Driving Impact →',
+                        url: 'blog/driving-co2-per-mile.html'
+                    },
+                    secondaryAction: {
+                        text: 'Explore EV Options',
+                        url: 'blog/electric-cars-vs-gas-cars-2025.html'
+                    }
+                },
+                'electric vehicle': {
+                    icon: '🚗⚡',
+                    title: 'Switch to an Electric Vehicle',
+                    description: 'EVs can save $6,000+ annually while eliminating tailpipe emissions completely.',
+                    benefits: 'Save $6,000+/year • Reduce emissions by 4-6 tons CO₂',
+                    primaryAction: {
+                        text: 'Compare EV vs Gas Costs →',
+                        url: 'blog/electric-cars-vs-gas-cars-2025.html'
+                    },
+                    secondaryAction: {
+                        text: 'Shop EV Chargers',
+                        url: 'https://www.amazon.com/s?k=ev+charger+home&ref=as_li_ss_tl'
+                    }
+                },
+                'energy monitor': {
+                    icon: '📊',
+                    title: 'Monitor Your Energy Usage',
+                    description: 'Identify hidden energy waste and save 15-25% on your first bill after installation.',
+                    benefits: 'Save $200-500/year • Reduce emissions by 0.5-1 ton CO₂',
+                    primaryAction: {
+                        text: 'Shop Energy Monitors →',
+                        url: 'https://www.amazon.com/s?k=home+energy+monitor&ref=as_li_ss_tl',
+                        dataAttributes: 'data-link-type="monitor" data-us="https://www.amazon.com/s?k=home+energy+monitor&ref=as_li_ss_tl" data-uk="https://www.amazon.co.uk/s?k=home+energy+monitor&ref=as_li_ss_tl" data-ca="https://www.amazon.ca/s?k=home+energy+monitor&ref=as_li_ss_tl"'
+                    },
+                    secondaryAction: {
+                        text: 'Learn How It Works',
+                        url: '#products'
+                    }
+                },
+                'plant-based diet': {
+                    icon: '🥗',
+                    title: 'Switch to Plant-Based Diet',
+                    description: 'Reduce your carbon footprint by up to 73% while improving your health and saving money.',
+                    benefits: 'Save $300-600/year • Reduce emissions by 2.5 tons CO₂',
+                    primaryAction: {
+                        text: 'Read Complete Guide →',
+                        url: 'blog/plant-based-diet-carbon-footprint.html'
+                    },
+                    secondaryAction: {
+                        text: 'Meat Impact Calculator',
+                        url: 'blog/chicken-vs-beef-footprint.html'
+                    }
+                },
+                'solar panels': {
+                    icon: '☀️',
+                    title: 'Install Home Solar Panels',
+                    description: 'Solar can save you $20,000+ over 25 years while eliminating electricity emissions.',
+                    benefits: 'Save $1,500-3,000/year • Reduce emissions by 3-5 tons CO₂',
+                    primaryAction: {
+                        text: 'Shop Solar Systems →',
+                        url: 'https://www.amazon.com/s?k=solar+panel+kits&ref=as_li_ss_tl',
+                        dataAttributes: 'data-link-type="solar" data-us="https://www.amazon.com/s?k=solar+panel+kits&ref=as_li_ss_tl" data-uk="https://www.amazon.co.uk/s?k=solar+panel+kits&ref=as_li_ss_tl" data-ca="https://www.amazon.ca/s?k=solar+panel+kits&ref=as_li_ss_tl"'
+                    },
+                    secondaryAction: {
+                        text: 'Is Solar Worth It?',
+                        url: 'blog/solar-panels-worth-it-2025.html'
+                    }
+                }
+            };
+            
+            return tips.map(tip => {
+                const tipLower = tip.toLowerCase();
+                // Match tips to products
+                if (tipLower.includes('renewable') || tipLower.includes('solar')) {
+                    return productMap['renewable energy'];
+                } else if (tipLower.includes('thermostat') || tipLower.includes('appliances') || tipLower.includes('energy-efficient')) {
+                    return productMap['energy-efficient'];
+                } else if (tipLower.includes('meat') || tipLower.includes('consumption')) {
+                    return productMap['meat consumption'];
+                } else if (tipLower.includes('transportation') || tipLower.includes('carpool') || tipLower.includes('public')) {
+                    return productMap['public transportation'];
+                } else if (tipLower.includes('electric vehicle') || tipLower.includes('ev')) {
+                    return productMap['electric vehicle'];
+                } else if (tipLower.includes('monitor') || tipLower.includes('audit')) {
+                    return productMap['energy monitor'];
+                } else if (tipLower.includes('plant-based') || tipLower.includes('diet')) {
+                    return productMap['plant-based diet'];
+                } else {
+                    // Default recommendation
+                    return {
+                        icon: '💚',
+                        title: tip,
+                        description: 'This change can significantly reduce your carbon footprint.',
+                        benefits: 'Reduce your impact',
+                        primaryAction: {
+                            text: 'Learn More →',
+                            url: 'blog/'
+                        },
+                        secondaryAction: {
+                            text: 'See All Tips',
+                            url: 'blog/offset-carbon-cheap.html'
+                        }
+                    };
+                }
+            });
+        }
+        
+        function createActionableTipCard(tipData, index) {
+            const card = document.createElement('div');
+            card.className = 'actionable-tip-card';
+            card.style.animationDelay = `${index * 0.1}s`;
+            
+            const primaryHref = tipData.primaryAction.url.startsWith('http') 
+                ? tipData.primaryAction.url 
+                : tipData.primaryAction.url;
+            
+            card.innerHTML = `
+                <div class="tip-header">
+                    <div class="tip-icon">${tipData.icon}</div>
+                    <div class="tip-content">
+                        <h4>${tipData.title}</h4>
+                        <p>${tipData.description}</p>
+                    </div>
+                </div>
+                <div class="tip-benefits">
+                    <strong>💰 Benefits:</strong> ${tipData.benefits}
+                </div>
+                <div class="tip-actions">
+                    <a href="${tipData.primaryAction.url}" 
+                       class="tip-action-btn" 
+                       ${tipData.primaryAction.dataAttributes || ''}
+                       target="${tipData.primaryAction.url.startsWith('http') ? '_blank' : '_self'}"
+                       rel="${tipData.primaryAction.url.startsWith('http') ? 'noopener' : ''}"
+                       onclick="trackTipClick('${tipData.title}', 'primary')">
+                        ${tipData.primaryAction.text}
+                    </a>
+                    <a href="${tipData.secondaryAction.url}" 
+                       class="tip-action-btn secondary"
+                       onclick="trackTipClick('${tipData.title}', 'secondary')">
+                        ${tipData.secondaryAction.text}
+                    </a>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        // Track which tips/products users click most
+        function trackTipClick(tipTitle, actionType) {
+            // Store in localStorage for analytics
+            const clicks = JSON.parse(localStorage.getItem('tipClicks') || '{}');
+            const key = `${tipTitle}_${actionType}`;
+            clicks[key] = (clicks[key] || 0) + 1;
+            localStorage.setItem('tipClicks', JSON.stringify(clicks));
+            
+            // Optional: Send to analytics service
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'tip_click', {
+                    'tip_title': tipTitle,
+                    'action_type': actionType
+                });
+            }
         }
         
         // Smooth scrolling for navigation links
@@ -2902,6 +3267,7 @@
         };
         
         const country = countryMap[countryCode] || 'us';
+        window.detectedCountry = country;
         
         // Update country indicator
         const indicator = document.getElementById('countryIndicator');
